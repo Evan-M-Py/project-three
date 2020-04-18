@@ -11,7 +11,6 @@ CREATE TABLE users (
     user_pass VARCHAR(30) NOT NULL,
     truck_id INT NOT NULL, 
     PRIMARY KEY (user_id)
-    -- FOREIGN KEY (truck_id) REFERENCES trucks(truck_id)
 );
 
 ALTER TABLE users
@@ -22,7 +21,6 @@ CREATE TABLE trucks(
     truck_name VARCHAR(60) NOT NULL,
     user_id INT NOT NULL, 
     PRIMARY KEY (truck_id)
-    -- FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 ALTER TABLE trucks
@@ -36,7 +34,6 @@ CREATE TABLE inventory(
     price DECIMAL(6,2) NOT NULL,
     truck_id INT NOT NULL, 
     PRIMARY KEY (inv_id)
-    -- FOREIGN KEY (truck_id) REFERENCES trucks(truck_id)
 );
 
 ALTER TABLE inventory
@@ -49,7 +46,6 @@ CREATE TABLE expenses(
     category VARCHAR(30) NOT NULL,
     truck_id INT NOT NULL, 
     PRIMARY KEY (exp_id)
-    -- FOREIGN KEY (truck_id) REFERENCES trucks(truck_id)
 );
 
 ALTER TABLE expenses
@@ -63,8 +59,6 @@ CREATE TABLE todo(
     user_id INT NOT NULL, 
     truck_id INT NOT NULL, 
     PRIMARY KEY (todo_id)
-    -- FOREIGN KEY (user_id) REFERENCES users(user_id),   
-    -- FOREIGN KEY (truck_id) REFERENCES trucks(truck_id)
 );
 
 ALTER TABLE todo
