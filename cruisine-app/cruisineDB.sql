@@ -28,8 +28,8 @@ ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 CREATE TABLE inventory(
 	inv_id INT NOT NULL AUTO_INCREMENT,
-    item_name VARCHAR(30) NOT NULL,
-    cateogry VARCHAR(30) NOT NULL,
+    item_name VARCHAR(60) NOT NULL,
+    cateogry VARCHAR(15) NOT NULL,
     quantity INT NOT NULL,
     price DECIMAL(6,2) NOT NULL,
     truck_id INT NOT NULL, 
@@ -41,7 +41,7 @@ ADD FOREIGN KEY (truck_id) REFERENCES trucks(truck_id);
 
 CREATE TABLE expenses(
 	exp_id INT NOT NULL AUTO_INCREMENT,
-    expense_name VARCHAR(30) NOT NULL,
+    expense_name VARCHAR(60) NOT NULL,
     price DECIMAL(6,2) NOT NULL,
     category VARCHAR(30) NOT NULL,
     truck_id INT NOT NULL, 
@@ -54,7 +54,7 @@ ADD FOREIGN KEY (truck_id) REFERENCES trucks(truck_id);
 CREATE TABLE todo(
 	todo_id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
-    body VARCHAR(60) NOT NULL,
+    body VARCHAR(90) NOT NULL,
     complete BOOLEAN NOT NULL,
     user_id INT NOT NULL, 
     truck_id INT NOT NULL, 
