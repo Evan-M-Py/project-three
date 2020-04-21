@@ -33,6 +33,7 @@ CREATE TABLE inventory(
     item_name VARCHAR(60) NOT NULL,
     category VARCHAR(15) NOT NULL,
     quantity INT NOT NULL,
+    unit VARCHAR(10) NOT NULL
     price DECIMAL(6,2) NOT NULL,
     truck_id INT, 
     PRIMARY KEY (inv_id)
