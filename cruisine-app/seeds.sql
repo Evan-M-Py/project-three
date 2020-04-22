@@ -39,7 +39,7 @@ VALUES
 ("Kosher Salt", "Spices", 25, "lb", 15.00), 
 ("Black Peppercorns", "Spices", 5, "lb",45.00), 
 ("Sugar", "Spices", 50, "lb", 45.00), 
-("Oil - EVOO", "Spices", 5, "Gal", 175.00), 
+("Oil - EVOO", "Spices5", 5, "Gal", 175.00), 
 ("Kombucha", "Beverages", 50, "ea", 150.00);
 
 
