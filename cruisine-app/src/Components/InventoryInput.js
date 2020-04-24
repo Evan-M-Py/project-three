@@ -1,29 +1,45 @@
 import React, { useState } from "react";
+import { Button } from 'react-bootstrap';
 import Input from './InputBase'
 import DropdownBase from "./DropdownBase";
 // Whenever we try to render an array containing JSX, React knows to render each JSX element separately
+
+const quantityOptions = ['lbs.', 'oz.', 'dz.', ];
+const catagoryOptions = ['Produce', 'Meat', 'Dairy','Non-Parishable', 'Spices', 'One-Off', 'Seasonal'];
+
+
 function InventoryInsert(props) {
 
-    const [itemName ,setItemName] = useState();
-    const [catagory,setCatagory] = useState();
-    const [quantityType,setQuantityType] = useState();
-    const [quantity,setQuantity] = useState();
-    const [totalCost,setTotalCost] = useState();
+  const [text, setText] = useState({
+    itemName: '',
+    quantity: '',
+    totalCost: ''
 
-    //------------------------------------------------------------------------------------------------------------------------
-    //Do I need to write a handle change functions for each of the values in State??
-    //------------------------------------------------------------------------------------------------------------------------
+  });
+  const [catagory, setCatagory] = useState(catagoryOptions[0]);
+  const [quantityType, setQuantityType] = useState(quantityOptions[0]);
 
-    const quantityOptions = ['lbs.', 'oz.', 'dz.', ];
-    const catagoryOptions = ['Produce', 'Meat', 'Dairy','Non-Parishable', 'Spices', 'One-Off', 'Seasonal'];
+
+  const handleInputChange = (e) => {
+    e.preventdefault();
+    const { name, value } = e.target;
+
+    setText((prevState) => ({
+      ...prevState, [name]: value
+     })
+    )
+  }
 
   return (
     <div>
-        <Input onChange={this.handleInputChange} name='itemName'/>
-        <DropdownBase handleDropdownChange={this.handleInputChange} name='catagory' options={catagoryOptions}/>
-        <DropdownBase handleDropdownChange={this.handleInputChange} name='quantityType' options={quantityOptions}/>
-        <Input onChange={this.handleInputChange} name='quantity'/>
-        <Input onChange={this.handleInputChange} name='totalCost'/>
+      <form>
+        <Input handleInputChange={handleInputChange} name='itemName' value={ text.itemName }/>
+        <DropdownBase handleDropdownChange={setCatagory} name='catagory' value={catagory} options={catagoryOptions} />
+        <DropdownBase handleDropdownChange={setQuantityType} name='quantityType' value={quantityType} options={quantityOptions} />
+        <Input handleInputChange={handleInputChange} name='quantity' />
+        <Input handleInputChange={handleInputChange} name='totalCost' />
+        <Button />
+      </form>
     </div>
   );
 }
