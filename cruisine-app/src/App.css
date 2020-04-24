@@ -51,13 +51,18 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    margin: 0 0 0 0;
+    /* margin-left: 0; */
+    /* margin-right: 0; */
 }
 .brand {
     /* font-family: 'Abril Fatface', cursive; */
     font-family: 'Pacifico', cursive;
     color: #5dbcd2;
     font-size: 65px;
+}
+.teal {
+    color: #5dbcd2;
+
 }
 .jumbotron {
     background-color: #556b80;

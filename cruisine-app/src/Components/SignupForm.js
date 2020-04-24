@@ -10,6 +10,7 @@ import Container from "react-bootstrap/Container";
 
 const SignupForm = (props) => {
     return (
+        <div className="login">
         <Container className="login d-flex align-items-center w-100">
             <Row className="justify-content-center w-100">
                 <Jumbotron className="col-8">
@@ -66,10 +67,15 @@ const SignupForm = (props) => {
                                 Submit
                             </Button>
                         </Row>
+                        <Row className="justify-content-center">
+                            <a class="mt-3 teal" href="#">Already a member? Sign in here</a>
+                        </Row>
                     </Form>
                 </Jumbotron>
             </Row>
         </Container>
+
+        </div>
     );
 };
 
