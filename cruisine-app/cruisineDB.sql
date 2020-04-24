@@ -32,8 +32,9 @@ CREATE TABLE inventory(
 	inv_id INT NOT NULL AUTO_INCREMENT,
     item_name VARCHAR(60) NOT NULL,
     category VARCHAR(15) NOT NULL,
+    quantity_type VARCHAR(15) NOT NULL,
     quantity INT NOT NULL,
-    price DECIMAL(6,2) NOT NULL,
+    total_cost DECIMAL(6,2) NOT NULL,
     truck_id INT, 
     PRIMARY KEY (inv_id)
 );
