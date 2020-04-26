@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import InventoryInsert from './Components/InventoryInput' 
+import InventoryPage from './Components/InventoryTab/InventoryPage'
+
+import ButtonForInventoryComponents from "./Components/InventoryTab/InsertInventoryButton"
 
 function App() {
+
+
   return (
-        <InventoryInsert/>
-  );
+    <InventoryPage/>
+  )
 }
 
 export default App;
