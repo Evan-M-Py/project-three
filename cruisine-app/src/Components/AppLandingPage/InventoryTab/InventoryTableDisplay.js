@@ -5,13 +5,17 @@ import { Table } from 'react-bootstrap';
 function InventoryTableDisplay(props) {
 
 
-
+ const style = {
+     tableLabels: {
+         width:''
+     }
+ }
 
   return (
       <div>
           <Table>
               <thead>
-                  <tr>
+                  <tr style={style.tableLabels}>
                       <th>item ID #</th>
                       <th>Item Category</th>
                       <th>Item Name</th>

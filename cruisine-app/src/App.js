@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import InventoryPage from './Components/InventoryTab/InventoryPage'
+import FullAppPage from './Components/AppLandingPage/FullAppPage'
 
-import ButtonForInventoryComponents from "./Components/InventoryTab/InsertInventoryButton"
+
 
 function App() {
 
 
   return (
-    <InventoryPage/>
+    <FullAppPage/>
   )
 }
 

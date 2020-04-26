@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Row, Col, Container } from 'react-bootstrap';
-import Input from '../InputBase';
-import DropdownBase from "../DropdownBase";
+import Input from '../../InputBase';
+import DropdownBase from "../../DropdownBase";
 
 // Whenever we try to render an array containing JSX, React knows to render each JSX element separately
 
@@ -83,7 +83,7 @@ function InventoryInsert(props) {
         <Row>
           <p style={style.itemLabel}>Cost: $</p>
           <Input style={style.inputCostStyle} placeholder='0000.00' handleInputChange={handleInputChange} name='totalCost' ></Input>
-          <Button variant='primary' size='sm' style={style.button} onClick='inventoryAjaxPost'>Submit Item to Inventory</Button> 
+          <Button variant='primary' size='sm' style={style.button} onClick={props.inventoryAjaxPost}>Submit Item to Inventory</Button> 
         </Row> 
     </Container>
   );
