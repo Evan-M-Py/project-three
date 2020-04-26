@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const db = require('../models')
 
-
 //Set up the Express app
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -20,7 +19,7 @@ app.get('/', function (req, res) {
 });
 
 //Routes
-
+require("./routes/userAPIs.js")(app);
 
 app.listen(PORT, function(){
     console.log(`Listening on port ${PORT}`)

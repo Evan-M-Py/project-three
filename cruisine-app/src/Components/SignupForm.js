@@ -12,10 +12,13 @@ const emailRegex = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
-const formValid = (formErrors) => {
+const formValid = ({ formErrors, ...rest }) => {
     let valid = true;
     Object.values(formErrors).forEach((val) => {
         val.length > 0 && (valid = false);
+    });
+    Object.values(rest).forEach(val => {
+        val === null && (valid = false);
     });
     return valid;
 };
@@ -25,13 +28,13 @@ class SignupPage extends Component {
         super(props);
 
         this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            phoneNumber: "",
-            username: "",
-            password: "",
-            truckName: "",
+            firstName: null,
+            lastName: null,
+            email: null,
+            phoneNumber: null,
+            username: null,
+            password: null,
+            truckName: null,
             formErrors: {
                 firstName: "",
                 lastName: "",
@@ -45,8 +48,14 @@ class SignupPage extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        if (formValid(this.state.formErrors)) {
-            console.log(`form is valid! fn${this.state.firstName},`);
+        if (formValid(this.state)) {
+            const data = new FormData(e.target);
+            
+            fetch('/api/createuser', {
+                method: 'POST',
+                body: data,
+              });
+
         } else {
             console.log("form is not valid");
         }
@@ -80,7 +89,7 @@ class SignupPage extends Component {
                         ? "phone number must be exactly 10 numbers"
                         : "";
                 break;
-            case "username":
+            case "username":    
                 formErrors.username =
                     value.length < 5
                         ? "minimum 5 characters required"
