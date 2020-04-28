@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table } from 'react-bootstrap';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-function InventoryTableDisplay(props) {
+const  InventoryTableDisplay = (props) => {
 
 
  const style = {
@@ -13,31 +13,51 @@ function InventoryTableDisplay(props) {
 
   return (
       <div>
-          <Table>
-              <thead>
-                  <tr style={style.tableLabels}>
-                      <th>item ID #</th>
-                      <th>Item Category</th>
-                      <th>Item Name</th>
-                      <th>Quantity</th>
-                      <th>Cost</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                  {props.invItem.map((x) => (
-                     <div> 
-                      <td>{props.invItem.item_name}</td>
-                      <td>{props.invItem.category}</td>
-                      <td>{props.invItem.quantity}</td>
-                      <td>{props.invItem.unit}</td>
-                      <td>{props.invItem.price}</td>
-                      </div>
-                  ))}
-                      
-                  </tr>
-              </tbody>
-          </Table>
+          <BootstrapTable data={props.data}>
+          <TableHeaderColumn isKey 
+                             dataField='inv_id' 
+                             dataAlign='center'
+                             headerAlign="left"
+                             width="75"
+                             >
+            ID
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='category'
+                             dataAlign='center'
+                             headerAlign="left"
+                             width="175"
+                             >
+            Catagory
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='item_name'
+                             dataAlign='center'
+                             headerAlign="left"
+                             width="325"
+                             >
+            Item Name
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='quantity_type'
+                             dataAlign='center'
+                             headerAlign="left"
+                             width="100"
+                             >
+            Quantity Type
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='quantity'
+                             dataAlign='center'
+                             headerAlign="left"
+                             width="100"
+                             >
+            Quantity
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='total_cost'
+                             dataAlign='center'
+                             headerAlign="left"
+                             width="200"
+                             >
+            Cost
+          </TableHeaderColumn>
+        </BootstrapTable>
       </div>
   )
 }

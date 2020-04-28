@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import FullAppPage from './Components/AppLandingPage/FullAppPage'
+import FullAppPage from './Components/AppLandingPage/FullAppPage/FullAppPage'
 
 
 

@@ -7,9 +7,9 @@ import {
     Link
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import InventoryPage from './InventoryTab/InventoryPage';
-import SideNav from './SideNav';
-import Wrapper from '../wrapper';
+import InventoryPage from '../InventoryTab/InventoryPage';
+import SideNav from '../SideNav';
+import Wrapper from '../../wrapper';
 
 function FullAppPage() {
 
@@ -36,7 +36,7 @@ function FullAppPage() {
         <Wrapper inside={(
             <Container style={style.container}>
                 <Row >
-                    <Col xs={2} md={1} lg={1}>
+                    <Col xs={1} md={2} lg={2}>
                 <SideNav />
                 </Col>
 
