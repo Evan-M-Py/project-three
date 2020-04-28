@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
         // A Trucks can't be created without an Author due to the foreign key constraint
         Truck.belongsTo(models.User, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
     };

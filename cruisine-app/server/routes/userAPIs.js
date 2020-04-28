@@ -1,14 +1,13 @@
+const db = require("../../models")
 module.exports = function(app) {
-const user = require("../../models/User.js");
-const truck = require("../../models/Truck.js");
     //User API routes go here
     app.post("/api/createuser", function(req, res) {
         console.log("New User:")
         console.log(req.body)
-        truck.create({
+        db.Truck.create({
             truck_name: req.body.truckName
         }).then(response => {
-            user.create({
+            db.User.create({
                 firstname: req.body.firstName,
                 lastname: req.bodt.lastName,
                 phone: req.body.phoneNumber,
@@ -19,6 +18,5 @@ const truck = require("../../models/Truck.js");
                 response.redirect("/dashboard");
             })
         })
-        
     })
 }
