@@ -3,12 +3,12 @@ import { Dropdown } from 'react-bootstrap';
 
 const DropdownBase = props => {
     return(
-        <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                click here for options
+        <Dropdown  style={props.style}>
+            <Dropdown.Toggle size='sm' variant="secondary" id="dropdown-basic">
+                {props.buttonLabel}
             </Dropdown.Toggle>
 
-            <Dropdown.Menu>
+            <Dropdown.Menu >
                 {props.options.map((x) => (<Dropdown.Item onClick={(e) => props.handleDropdownChange(e.innerText)}>{x}</Dropdown.Item>))}
             </Dropdown.Menu>
         </Dropdown>
