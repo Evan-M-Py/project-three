@@ -4,14 +4,14 @@ import Wrapper from './wrapper'
 const Input = props => {
 
     return (
-        <Wrapper>
+        <div>
             <input 
             style={props.style} 
             onChange={props.handleInputChange ? e => props.handleInputChange(e) : null} 
             value={props.value} name={props.name}  
             className={props.className} 
             placeholder={props.placeholder}/>
-        </Wrapper>
+        </div>
     )
 };
 

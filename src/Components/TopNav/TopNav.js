@@ -1,42 +1,31 @@
-import React, { Component } from 'react';
-import './TopNav.css';
+import React from 'react';
+// import 'bootstrap/dist/bootstrap.min.css';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-
-class TopNav extends Component {
-
-    state = {
-        toggle: false
-    }
-
-
-    render() {
-        return (
-            <nav className="topNav">
-                <div className="logo">
-                    <h4>Crusine</h4>
-                </div>
-                <ul className={`navLinks ${this.state.toggle ? "nav-active" : ""}`}>
-                    <li><a className={`navLinkFade1 ${this.state.toggle ? "toggled" : ""}`} href="#">Inventory</a></li>
-
-                    <li><a className={`navLinkFade2 ${this.state.toggle ? "toggled" : ""}`} href="#">Expenses</a></li>
-
-                    <li><a className={`navLinkFade3 ${this.state.toggle ? "toggled" : ""}`} href="#">Settings</a></li>
-
-                    <li><a className={`navLinkFade4 ${this.state.toggle ? "toggled" : ""}`} href="#">Logout</a></li>
-
-                </ul>
-
-                <div className="burger" onClick={() => this.setState({ toggle: !this.state.toggle })}>
-                    <div className={`line1 ${this.state.toggle ? "toggle" : ""}`}></div>
-
-                    <div className={`line2 ${this.state.toggle ? "toggle" : ""}`}></div>
-
-                    <div className={`line3 ${this.state.toggle ? "toggle" : ""}`}></div>
-
-                </div>
-            </nav>
-        )
-    }
+const TopNav = (props) => {
+    return (
+        <Navbar collapseOnSelect>
+            <Navbar.Brand href="#home">Crusine</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link href="#settings">Settings</Nav.Link>
+                    <NavDropdown title="Change Trucks" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Pho-k Me, The Pho Truck</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Andrew's Pasta Shpot</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">DelishDish</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+                <Nav>
+                    <Nav.Link eventKey={2} href="#memes">
+                        Logout
+            </Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    )
 }
 
 

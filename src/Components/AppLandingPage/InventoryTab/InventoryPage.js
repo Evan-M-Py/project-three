@@ -9,11 +9,13 @@ import ButtonForInventoryComponents from "./InsertInventoryButton"
 function InventoryPage() {
 
     const [inv, setInv] = useState([{
-        item_name: 's',
-        category: 's',
+        inv_id: '1',
+        category: 'Dairy',
+        item_name: 'Whole Milk',
         quantity: 's',
         price: 's'
-      }]);
+      }
+    ]);
 
 
     const inventoryInsertAJAX = () => {
@@ -29,7 +31,7 @@ function InventoryPage() {
         </Row>
 
         <Row>
-           <InventoryDisplayTable invItem={inv} /> 
+           <InventoryDisplayTable data={inv} invItem={inv} /> 
         </Row>    
     </Container>
   )
