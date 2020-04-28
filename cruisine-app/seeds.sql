@@ -24,68 +24,68 @@ VALUES
 -- -- Desserts
 -- -- Beverages
 
-INSERT INTO inventory (item_name, category, quantity, price)
+INSERT INTO inventory (item_name, category, quantity, unit, price)
 VALUES
-("Tomatoes - Roma", "Veggies", 50, 25.00), 
-("Turnips", "Veggies", 25, 25.00), 
-("Beets - Red", "Veggies", 25, 25.00), 
-("Carrots", "Veggies", 25, 30.00), 
-("Peas", "Veggies", 20, 10.00), 
-("Ginger", "Veggies", 5, 30.00), 
-("Broccoli", "Veggies", 20, 25.00), 
-("Cauliflower", "Veggies", 15, 30.00),
-("Rice - White", "Breads/Grains", 50, 40.00),
-("Chicken", "Meats", 150, 180.00), 
-("Kosher Salt", "Spices", 25, 15.00), 
-("Black Peppercorns", "Spices", 5, 45.00), 
-("Sugar", "Spices", 50, 45.00), 
-("Oil - EVOO", "Spices", 5, 175.00), 
-("Kombucha", "Beverages", 50, 150.00);
+("Tomatoes - Roma", "Veggies", 50, "lb", 25.00), 
+("Turnips", "Veggies", 25, "lb", 25.00), 
+("Beets - Red", "Veggies", 25, "lb", 25.00), 
+("Carrots", "Veggies", 25, "lb", 30.00), 
+("Peas", "Veggies", 20, "lb", 10.00), 
+("Ginger", "Veggies", 5, "lb",30.00), 
+("Broccoli", "Veggies", 20, "lb", 25.00), 
+("Cauliflower", "Veggies", 15, "lb", 30.00),
+("Rice - White", "Breads/Grains", 50, "lb", 40.00),
+("Chicken", "Meats", 150, "lb", 180.00), 
+("Kosher Salt", "Spices", 25, "lb", 15.00), 
+("Black Peppercorns", "Spices", 5, "lb",45.00), 
+("Sugar", "Spices", 50, "lb", 45.00), 
+("Oil - EVOO", "Spices5", 5, "Gal", 175.00), 
+("Kombucha", "Beverages", 50, "ea", 150.00);
 
 
-INSERT INTO inventory (item_name, category, quantity, price)
+INSERT INTO inventory (item_name, category, quantity, unit, price)
 VALUES
-("Sourdough - Loaf", "Breads/Grains", 4, 65.00),
-("White - Loaf", "Breads/Grains", 4, 65.00),
-("Wheat - Loaf", "Breads/Grains", 4, 65.00),
-("Butter", "Dairy", 25, 50.00),
-("Cheese - Sharp White Cheddar", "Dairy", 40, 45.00),
-("Cheese - Swiss", "Dairy", 40, 45.00),
-("Cheese - American", "Dairy", 40, 45.00),
-("Cheese - Muenster", "Dairy", 40, 45.00),
-("Cheese - Medium Sharp Yellow Cheddar", "Dairy", 40, 45.00),
-("Onions - White", "Veggies", 40, 45.00), 
-("Beef - Roast", "Meat", 40, 45.00),
-("Kosher Salt", "Spices", 25, 15.00),
-("Black Peppercorns", "Spices", 5, 45.00),
-("Garlic Powder", "Spices", 5, 45.00),
-("Onion Powder", "Spices", 5, 45.00),
-("Cayenne", "Spices", 1, 15.00),
-("Oil - EVOO", "Spices", 5, 175.00);
+("Sourdough - Loaf", "Breads/Grains", 4, "ea", 65.00),
+("White - Loaf", "Breads/Grains", 4, "ea", 65.00),
+("Wheat - Loaf", "Breads/Grains", 4, "ea", 65.00),
+("Butter", "Dairy", 25, "lb", 50.00),
+("Cheese - Sharp White Cheddar", "Dairy", 40, "lb", 45.00),
+("Cheese - Swiss", "Dairy", 40, "lb", 45.00),
+("Cheese - American", "Dairy", 40, "lb", 45.00),
+("Cheese - Muenster", "Dairy", 40, "lb", 45.00),
+("Cheese - Medium Sharp Yellow Cheddar", "Dairy", 40, "lb", 45.00),
+("Onions - White", "Veggies", 40, "lb", 45.00), 
+("Beef - Roast", "Meat", 40, "lb", 45.00),
+("Kosher Salt", "Spices", 25, "lb", 15.00),
+("Black Peppercorns", "Spices", 5, "lb", 45.00),
+("Garlic Powder", "Spices", 5, "lb", 45.00),
+("Onion Powder", "Spices", 5, "lb", 45.00),
+("Cayenne", "Spices", 1, "lb", 15.00),
+("Oil - EVOO", "Spices", 5, "Gal", 175.00);
 
-INSERT INTO inventory (item_name, category, quantity, price)
+INSERT INTO inventory (item_name, category, quantity, unit, price)
 VALUES
-("Brioche -Burger Buns", "Breads/Grains", 50, 70.00),
-("Butter", "Dairy", 25, 50.00),
-("Pineapple", "Fruits", 12, 25.00),
-("Apples", "Fruits", 26, 45.00),
-("Limes", "Fruits", 60, 30.00),
-("Lemons", "Fruits", 45, 25.00),
-("Lettuce - Iceberg", "Veggies", 60, 45.00),
-("Arugula", "Veggies", 30, 30.00),
-("Mushrooms - Crimini", "Veggies", 25, 30.00),
-("Tomatoes - Roma", "Veggies", 50, 25.00),
-("Pickles", "Veggies", 30, 30.00),
-("Onions - Red", "Veggies", 40, 45.00),
-("Potatoes - Russets", "Veggies", 1, 45.00),
-("Beef - Ground", "Meats", 100, 800.00),
-("Pork - Bacon", "Meats", 50, 300.00),
-("Beef - Ribeye", "Meats", 1, 45.00),
-("Kosher Salt", "Spices", 25, 15.00),
-("Black Peppercorns", "Spices", 5, 45.00),
-("Sugar", "Spices", 50, 45.00),
-("Oil - Canola", "Spices", 70, 35.00),
-("Oil - EVOO", "Spices", 5, 175.00);
+("Brioche -Burger Buns", "Breads/Grains", 50, "ea", 70.00),
+("Butter", "Dairy", 25, "lb", 50.00),
+("Pineapple", "Fruits", 12, "lb", 25.00),
+("Apples", "Fruits", 26, "lb", 45.00),
+("Limes", "Fruits", 60, "lb", 30.00),
+("Lemons", "Fruits", 45, "lb", 25.00),
+("Lettuce - Iceberg", "Veggies", 60, "lb", 45.00),
+("Arugula", "Veggies", 30, "lb", 30.00),
+("Mushrooms - Crimini", "Veggies", 25, "lb", 30.00),
+("Tomatoes - Roma", "Veggies", 50, "lb", 25.00),
+("Pickles", "Veggies", 30, "jar", 30.00),
+("Onions - Red", "Veggies", 40, "lb", 45.00),
+("Potatoes - Russets", "Veggies", 1, "lb", 45.00),
+("Beef - Ground", "Meats", 100, "lb", 800.00),
+("Pork - Bacon", "Meats", 50, "lb", 300.00),
+("Beef - Ribeye", "Meats", 1, "ea", 45.00),
+("Kosher Salt", "Spices", 25, "lb", 15.00),
+("Black Peppercorns", "Spices", 5, "lb",45.00),
+("Sugar", "Spices", 50, "lb", 45.00),
+("Oil - Canola", "Spices", 70, "Gal", 35.00),
+("Oil - EVOO", "Spices", 5, "Gal", 175.00);
 
 -- SELECT * FROM inventory;
 
