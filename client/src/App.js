@@ -7,6 +7,7 @@ import {BrowserRouter, Switch, Route, useLocation} from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
 import LoginForm from './Components/LoginForm';
+import TruckForm from './Components/TruckForm'
 
 
 
@@ -15,15 +16,18 @@ function App() {
 
   return (
     <div>
-      {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav/>}
+      {location.pathname !== '/truck' && location.pathname !== '/signup' && location.pathname !== '/' && <SideNav/>}
                         
     <Switch>
-
+        
         <Route exact path="/">
             <LoginForm />
         </Route>
         <Route exact path="/signup">
             <SignupPage/>
+        </Route>
+        <Route exact path="/truck">
+            <TruckForm/>
         </Route>
         <Route exact path="/dashboard">                              
             <InventoryPage/>
