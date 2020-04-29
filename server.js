@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
-const db = require('../models')
+const db = require('./models')
 
 //Set up the Express app
 const app = express();
@@ -20,12 +20,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 //Routes
-require("./routes/userAPIs.js")(app);
+require("./server/routes/userAPIs.js")(app);
 
-app.listen(PORT, function(){
+app.listen(PORT, function () {
     console.log(`Listening on port ${PORT}`)
 });

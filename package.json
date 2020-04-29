@@ -13,10 +13,6 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "sequelize": "^5.21.7",
-<<<<<<< HEAD:package.json
-=======
-
->>>>>>> 594b4c538c5f8a7d8e9c9e8582e6f6c82ce379be:cruisine-app/package.json
     "react-bootstrap-table": "^4.3.1",
     "react-router-dom": "^5.1.2"
   },

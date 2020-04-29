@@ -26,20 +26,20 @@ VALUES
 
 INSERT INTO inventory (item_name, category, quantity, unit, price)
 VALUES
-("Tomatoes - Roma", "Veggies", 50, "lb", 25.00), 
-("Turnips", "Veggies", 25, "lb", 25.00), 
-("Beets - Red", "Veggies", 25, "lb", 25.00), 
+-- ("Tomatoes - Roma", "Veggies", 50, "lb", 25.00), 
+-- ("Turnips", "Veggies", 25, "lb", 25.00), 
+-- ("Beets - Red", "Veggies", 25, "lb", 25.00), 
 ("Carrots", "Veggies", 25, "lb", 30.00), 
 ("Peas", "Veggies", 20, "lb", 10.00), 
 ("Ginger", "Veggies", 5, "lb",30.00), 
-("Broccoli", "Veggies", 20, "lb", 25.00), 
+-- ("Broccoli", "Veggies", 20, "lb", 25.00), 
 ("Cauliflower", "Veggies", 15, "lb", 30.00),
 ("Rice - White", "Breads/Grains", 50, "lb", 40.00),
 ("Chicken", "Meats", 150, "lb", 180.00), 
 ("Kosher Salt", "Spices", 25, "lb", 15.00), 
 ("Black Peppercorns", "Spices", 5, "lb",45.00), 
 ("Sugar", "Spices", 50, "lb", 45.00), 
-("Oil - EVOO", "Spices5", 5, "Gal", 175.00), 
+("Oil - EVOO", "Spices", 5, "Gal", 175.00), 
 ("Kombucha", "Beverages", 50, "ea", 150.00);
 
 
