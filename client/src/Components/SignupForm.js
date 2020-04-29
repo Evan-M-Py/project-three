@@ -273,7 +273,7 @@ class SignupPage extends Component {
                                     </Button>
                                 </Row>
                                 <Row className="justify-content-center">
-                                    <a className="mt-3 teal" href="#">
+                                    <a className="mt-3 teal" href="/">
                                         Already a member? Sign in here
                                     </a>
                                 </Row>
