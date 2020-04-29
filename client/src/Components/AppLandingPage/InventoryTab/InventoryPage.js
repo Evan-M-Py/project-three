@@ -12,15 +12,21 @@ function InventoryPage() {
         inv_id: '1',
         category: 'Dairy',
         item_name: 'Whole Milk',
-        quantity: 's',
+        quuantityType: 'gal',
+        quantity: '3',
         price: 's'
       }
     ]);
 
+    const [invDisplay, setInvDisplay] = useState([{
 
-    const inventoryInsertAJAX = () => {
+    }
+  ]);
+
+
+    const inventoryInsertAJAX = (thing) => {
         
-        // I NEED HELP HERE!!!!
+        console.log(thing)
 
     }
 

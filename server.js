@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
 });
 
 //Routes
-require("./server/routes/userAPIs.js")(app);
+require("./server/routes/userAPI.js")(app);
 
 app.listen(PORT, function () {
     console.log(`Listening on port ${PORT}`)

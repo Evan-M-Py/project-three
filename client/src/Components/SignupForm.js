@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import Brand from "../Components/Brand";
+import Brand from "./Brand";
 import Container from "react-bootstrap/Container";
 
 const emailRegex = RegExp(
@@ -28,13 +28,13 @@ class SignupPage extends Component {
         super(props);
 
         this.state = {
-            firstName: null,
-            lastName: null,
-            email: null,
-            phoneNumber: null,
-            username: null,
-            password: null,
-            truckName: null,
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            username: "",
+            password: "",
+            truckName: "",
             formErrors: {
                 firstName: "",
                 lastName: "",
@@ -138,10 +138,10 @@ class SignupPage extends Component {
                                             />
                                             {formErrors.firstName.length >
                                                 0 && (
-                                                <span className="errorMessage">
-                                                    {formErrors.firstName}
-                                                </span>
-                                            )}
+                                                    <span className="errorMessage">
+                                                        {formErrors.firstName}
+                                                    </span>
+                                                )}
                                         </Form.Group>
                                     </Col>
                                     <Col>
@@ -198,10 +198,10 @@ class SignupPage extends Component {
                                             />
                                             {formErrors.phoneNumber.length >
                                                 0 && (
-                                                <span className="errorMessage">
-                                                    {formErrors.phoneNumber}
-                                                </span>
-                                            )}
+                                                    <span className="errorMessage">
+                                                        {formErrors.phoneNumber}
+                                                    </span>
+                                                )}
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -259,7 +259,7 @@ class SignupPage extends Component {
                                                 onChange={this.handleChange}
                                             />{formErrors.truckName.length > 0 && (
                                                 <span className="errorMessage">{formErrors.truckName}</span>
-                                              )}
+                                            )}
                                         </Form.Group>
                                     </Col>
                                 </Row>

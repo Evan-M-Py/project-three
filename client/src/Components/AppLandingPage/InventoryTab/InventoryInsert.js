@@ -42,6 +42,7 @@ function InventoryInsert(props) {
       justifyContent: 'center'
     },
     itemLabel: {
+        
       textAlign: 'right',
       alignSelf: 'stretch',
       width:'90px',
@@ -83,7 +84,7 @@ function InventoryInsert(props) {
         <Row>
           <p style={style.itemLabel}>Cost: $</p>
           <Input style={style.inputCostStyle} placeholder='0000.00' handleInputChange={handleInputChange} name='totalCost' ></Input>
-          <Button variant='primary' size='sm' style={style.button} onClick={props.inventoryAjaxPost}>Submit Item to Inventory</Button> 
+          <Button variant='primary' size='sm' style={style.button} onClick={() => props.inventoryAjaxPost(text)}>Submit Item to Inventory</Button> 
         </Row> 
     </Container>
   );

@@ -1,4 +1,4 @@
-import InventoryInsert from './InventoryInput'
+import InventoryInsert from './InventoryInsert'
 import React, { useState, useRef } from "react";
 import { Collapse, Button } from 'react-bootstrap';
 
