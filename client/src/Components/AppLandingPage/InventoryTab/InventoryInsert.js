@@ -12,9 +12,9 @@ const catagoryOptions = ['Produce', 'Meat', 'Dairy','Non-Parishable', 'Spices', 
 function InventoryInsert(props) {
 
   const [text, setText] = useState({
-    itemName: '',
+    item_name: '',
     quantity: '',
-    totalCost: ''
+    cost: ''
 
   });
 
@@ -32,9 +32,11 @@ function InventoryInsert(props) {
     )
   };
 
-  const inventoryAjaxPost = () => {
-
-  };
+  const invObj = {
+    ...text,
+    catagory,
+    quantityType
+  }
 
 
   const style = {
@@ -73,18 +75,18 @@ function InventoryInsert(props) {
     <Container style={style.container}>
         <Row>
           <p style={style.itemLabel}>Item Name:</p>
-          <Input style={style.inputStyle} placeholder='enter item name' inputLabel='Item Name' handleInputChange={handleInputChange} name='itemName' value={ text.itemName }/>
+          <Input style={style.inputStyle} placeholder='enter item name' inputLabel='Item Name' handleInputChange={handleInputChange} name='item_name' value={ text.itemName }/>
           <DropdownBase buttonLabel={'select catagory'} style={style.dropdownStyle} handleDropdownChange={setCatagory} name='catagory' value={catagory} options={catagoryOptions} />
         </Row>
         <Row>
           <p style={style.itemLabel}>Quantity:</p>
           <Input style={style.inputStyle} placeholder='enter amount' handleInputChange={handleInputChange} name='quantity' />
-          <DropdownBase buttonLabel={'select unit'} style={style.dropdownStyle} handleDropdownChange={setQuantityType} name='quantityType' value={quantityType} options={quantityOptions} />    
+          <DropdownBase buttonLabel={'select unit'} style={style.dropdownStyle} handleDropdownChange={setQuantityType} name='unit' value={quantityType} options={quantityOptions} />    
         </Row>
         <Row>
           <p style={style.itemLabel}>Cost: $</p>
-          <Input style={style.inputCostStyle} placeholder='0000.00' handleInputChange={handleInputChange} name='totalCost' ></Input>
-          <Button variant='primary' size='sm' style={style.button} onClick={() => props.inventoryAjaxPost(text)}>Submit Item to Inventory</Button> 
+          <Input style={style.inputCostStyle} placeholder='0000.00' handleInputChange={handleInputChange} name='cost' ></Input>
+          <Button variant='primary' size='sm' style={style.button} onClick={() => props.inventoryAjaxPost(invObj)}>Submit Item to Inventory</Button> 
         </Row> 
     </Container>
   );

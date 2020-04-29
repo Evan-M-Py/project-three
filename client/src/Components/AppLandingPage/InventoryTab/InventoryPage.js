@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Row, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InventoryDisplayTable from './InventoryTableDisplay';
+import axios from "axios";
+
 
 
 import ButtonForInventoryComponents from "./InsertInventoryButton"
@@ -12,7 +14,7 @@ function InventoryPage() {
         inv_id: '1',
         category: 'Dairy',
         item_name: 'Whole Milk',
-        quuantityType: 'gal',
+        unit: 'gal',
         quantity: '3',
         price: 's'
       }
@@ -25,8 +27,9 @@ function InventoryPage() {
 
 
     const inventoryInsertAJAX = (thing) => {
+      console.log(thing)
+        return axios.post("/api/Inventory", thing );
         
-        console.log(thing)
 
     }
 

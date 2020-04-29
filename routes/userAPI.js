@@ -1,4 +1,5 @@
-const db = require("../../models")
+const db = require("../models")
+
 module.exports = function(app) {
     //User API routes go here
     app.post("/api/createuser", function(req, res) {
@@ -9,13 +10,13 @@ module.exports = function(app) {
         }).then(response => {
             db.User.create({
                 firstname: req.body.firstName,
-                lastname: req.bodt.lastName,
+                lastname: req.body.lastName,
                 phone: req.body.phoneNumber,
                 email: req.body.email,
                 username: req.body.username,
                 user_pass: req.body.password
             }).then(response => {
-                response.redirect("/dashboard");
+                res.json(true);
             })
         })
     })
