@@ -46,7 +46,7 @@ const LoginForm = (props) => {
                                 </Button>
                             </Row>
                             <Row className="justify-content-center">
-                                <a class="mt-3 teal" href="#">
+                                <a class="mt-3 teal" href="/signup">
                                     Not a member yet? Sign up here
                                 </a>
                             </Row>
@@ -59,4 +59,3 @@ const LoginForm = (props) => {
 };
 
 export default LoginForm;
-``
