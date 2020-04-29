@@ -24,7 +24,11 @@ app.get('/', function (req, res) {
 });
 
 //Routes
-require("./server/routes/userAPI.js")(app);
+require("./routes/inventoryAPI")(app);
+require("./routes/expenseAPI")(app);
+require("./routes/userAPI")(app);
+require("./routes/truckAPI")(app);
+
 
 app.listen(PORT, function(){
     console.log(`Listening on port ${PORT}`)

@@ -9,7 +9,7 @@ const DropdownBase = props => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu >
-                {props.options.map((x) => (<Dropdown.Item onClick={(e) => props.handleDropdownChange(e.innerText)}>{x}</Dropdown.Item>))}
+                {props.options.map((x) => (<Dropdown.Item onClick={(e) => props.handleDropdownChange(e.target.innerText)}>{x}</Dropdown.Item>))}
             </Dropdown.Menu>
         </Dropdown>
     )
