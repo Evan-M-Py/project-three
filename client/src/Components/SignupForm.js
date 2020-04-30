@@ -34,7 +34,7 @@ class SignupPage extends Component {
             phoneNumber: "",
             username: "",
             password: "",
-            truckName: "",
+            
             formErrors: {
                 firstName: "",
                 lastName: "",
@@ -42,7 +42,7 @@ class SignupPage extends Component {
                 phoneNumber: "",
                 username: "",
                 password: "",
-                truckName: "",
+                
             },
         };
     }
@@ -53,7 +53,20 @@ class SignupPage extends Component {
             
             fetch('/api/createuser', {
                 method: 'POST',
-                body: data,
+                body: JSON.stringify({
+                    firstName: e.target.firstName.value,
+                    lastName: e.target.lastName.value,
+                    email: e.target.email.value,
+                    phoneNumber: e.target.phoneNumber.value,
+                    username: e.target.username.value,
+                    password: e.target.password.value,
+                }),
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+              }).then(response => {
+                  this.props.history.push("/truck");
               });
 
         } else {
@@ -101,12 +114,12 @@ class SignupPage extends Component {
                         ? "minimum 8 characters required"
                         : "";
                 break;
-            case "truckName":
-                formErrors.truckName =
-                    value.length < 5
-                        ? "minimum 5 characters required"
-                        : "";
-                break;
+            // case "truckName":
+            //     formErrors.truckName =
+            //         value.length < 5
+            //             ? "minimum 5 characters required"
+            //             : "";
+            //     break;
             default:
                 break;
         }
@@ -245,7 +258,7 @@ class SignupPage extends Component {
                                         </Form.Group>
                                     </Col>
                                 </Row>
-                                <Row className="justify-content-center">
+                                {/* <Row className="justify-content-center">
                                     <Col className="col-6">
                                         <Form.Group>
                                             <Form.Label htmlFor="truckName">
@@ -262,7 +275,7 @@ class SignupPage extends Component {
                                             )}
                                         </Form.Group>
                                     </Col>
-                                </Row>
+                                </Row> */}
                                 <Row className="justify-content-center">
                                     <Button
                                         className="landing-btn col-4 mt-3"

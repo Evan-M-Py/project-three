@@ -9,6 +9,27 @@ import Brand from "./Brand";
 import Container from "react-bootstrap/Container";
 
 class TruckForm extends Component {
+    handleSubmit = (e) => {
+        e.preventDefault();
+        // if (formValid(this.state)) {
+            const data = new FormData(e.target);
+            fetch('/api/createtruck', {
+                method: 'POST',
+                body: JSON.stringify({
+                    truckName: e.target.truckName.value
+                }),
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+              }).then(response => {
+                  this.props.history.push("/dashboard");
+              });
+
+        // } else {
+        //     console.log("form is not valid");
+        // }
+    };
     render() {
         return (
             <div className="login">
@@ -16,7 +37,7 @@ class TruckForm extends Component {
                     <Row className="justify-content-center w-100">
                         <Jumbotron className="col-8">
                             <Brand />
-                            <Form>
+                            <Form onSubmit={this.handleSubmit}>
                                 <Row className="justify-content-center">
                                     <Col className="col-6">
                                         <Form.Group>
