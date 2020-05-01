@@ -30,6 +30,8 @@ require("./routes/userAPI")(app);
 require("./routes/truckAPI")(app);
 
 
-app.listen(PORT, function(){
+db.sequelize.sync({ force: true }).then(()=>{
+  app.listen(PORT, function(){
     console.log(`Listening on port ${PORT}`)
+});
 });

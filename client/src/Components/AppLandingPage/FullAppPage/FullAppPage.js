@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InventoryPage from '../InventoryTab/InventoryPage';
+import ExpensePage from '../ExpenseTab/ExpensePage'
 import SideNav from '../SideNav';
 import Wrapper from '../../wrapper';
 

@@ -7,6 +7,7 @@ import { Switch, Route, useLocation} from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
 import LoginForm from './Components/LoginForm';
+import ExpensePage from './Components/AppLandingPage/ExpenseTab/ExpensePage';
 
 
 
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <div>
-      {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav/>}
+      {/* {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav/>} */}
                         
     <Switch>
 
@@ -23,16 +24,16 @@ function App() {
             <LoginForm />
         </Route>
         <Route exact path="/signup">
-            <SignupPage/>
+        <SignupPage/>
         </Route>
         <Route exact path="/dashboard">                              
-            <InventoryPage/>
+        <ExpensePage/>
         </Route>
         <Route exact path="/inventory">
-            <InventoryPage/>
+        <InventoryPage/>
         </Route>
         <Route exact path="/expenses">
-            <InventoryPage/>
+            <ExpensePage/>
         </Route>
         <Route path='*'>
             
