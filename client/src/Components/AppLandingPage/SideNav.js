@@ -18,13 +18,16 @@ function SideNav() {
         }
     }
 
-  return (
-    <Wrapper inside={(
-        <div className='col-md-2' style={style.navStyle}>
-            s
+    return (
+        <div>
+            <Wrapper inside={(
+                <div className='col-md-2' style={style.navStyle}>
+                    s
+                </div>
+            )} />
         </div>
-    )}/>
-  )
+
+    )
 }
 
 export default SideNav;

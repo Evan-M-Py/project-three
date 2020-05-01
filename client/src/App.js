@@ -7,38 +7,56 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
 import LoginForm from './Components/LoginForm';
+import TopNav from './Components/TopNav/TopNav.js'
+import Dashboard from './Components/DashboardTab/Dashboard'
 
 
 
 function App() {
     const location = useLocation()
 
+    const style = {
+        parentDiv: {
+            display: "flex"
+        }
+    }
+
     return (
-        <div>
-            {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
+        <div >
+            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav />}
 
-            <Switch>
+            <div style={style.parentDiv}>
+                {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
 
-                <Route exact path="/">
-                    <LoginForm />
-                </Route>
-                <Route exact path="/signup">
-                    <SignupPage />
-                </Route>
-                <Route exact path="/dashboard">
-                    <InventoryPage />
-                </Route>
-                <Route exact path="/inventory">
-                    <InventoryPage />
-                </Route>
-                <Route exact path="/expenses">
-                    <InventoryPage />
-                </Route>
-                <Route path='*'>
-                    <InventoryPage />
-                </Route>
-            </Switch>
-            {/* <FullAppPage/> */}
+                <Switch>
+
+                    <Route exact path="/">
+                        <LoginForm />
+                    </Route>
+
+                    <Route exact path="/signup">
+                        <SignupPage />
+                    </Route>
+
+                    <Route exact path="/dashboard">
+                        <Dashboard />
+                    </Route>
+
+                    <Route exact path="/inventory">
+                        <InventoryPage />
+                    </Route>
+
+                    <Route exact path="/expenses">
+                        <InventoryPage />
+                    </Route>
+
+                    <Route path='*'>
+                        <InventoryPage />
+                    </Route>
+
+                </Switch>
+            </div>
+
 
         </div>
     )

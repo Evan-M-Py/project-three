@@ -1,8 +1,8 @@
-DROP DATABASE cruisineDB;
+DROP DATABASE crusine_db;
 
-CREATE DATABASE cruisineDB;
+CREATE DATABASE crusine_db;
 
-USE cruisineDB;
+USE crusine_db;
 
 
 -- ****The MySQL TABLES
