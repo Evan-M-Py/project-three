@@ -27,13 +27,13 @@ function App() {
         <SignupPage/>
         </Route>
         <Route exact path="/dashboard">                              
-        <ExpensePage/>
+        <DashboardPage/>
         </Route>
         <Route exact path="/inventory">
         <InventoryPage/>
         </Route>
         <Route exact path="/expenses">
-            <ExpensePage/>
+        <ExpensePage/>
         </Route>
         <Route path='*'>
             
