@@ -20,19 +20,20 @@ function InventoryPage() {
       }
     ]);
 
-    const [invDisplay, setInvDisplay] = useState([{
-
-    }
-  ]);
+    const [invDisplay, setInvDisplay] = useState([{}]);
 
 
     const inventoryInsertAJAX = (thing) => {
       console.log(thing)
         return axios.post("/api/Inventory", thing );
-        
+    };
 
-    }
-
+    const inventoryTableAJAX = (thing) => {
+      console.log(thing)
+        return axios.post("/api/Inventory", thing ).then((res) => {
+          setInvDisplay(res);
+        }
+      )};
   return (
      <Container>
         <Row>
@@ -40,7 +41,7 @@ function InventoryPage() {
         </Row>
 
         <Row>
-           <InventoryDisplayTable data={inv} invItem={inv} /> 
+           <InventoryDisplayTable data={invDisplay} invItem={inv} /> 
         </Row>    
     </Container>
   )
