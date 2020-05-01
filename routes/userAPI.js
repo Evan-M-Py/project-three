@@ -1,8 +1,10 @@
+require('dotenv').config()
 const db = require("../models")
+const jwt = require('jsonwebtoken')
 
 module.exports = function(app) {
     //User API routes go here
-    app.post("/api/createuser", function(req, res) {
+    app.post("/signup", function(req, res) {
         console.log("New User:");
         console.log(req.body);
         db.User.create({
@@ -15,5 +17,11 @@ module.exports = function(app) {
         }).then(response => {
             res.json(true);
         })
+    })
+    app.post("/", function(req, res) {
+        const username = req.body.username
+        const user = { name: username }
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+        res.json({ accessToken: accessToken });
     })
 }

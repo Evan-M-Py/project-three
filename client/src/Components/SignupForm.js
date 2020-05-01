@@ -51,7 +51,7 @@ class SignupPage extends Component {
         if (formValid(this.state)) {
             const data = new FormData(e.target);
             
-            fetch('/api/createuser', {
+            fetch('/signup', {
                 method: 'POST',
                 body: JSON.stringify({
                     firstName: e.target.firstName.value,

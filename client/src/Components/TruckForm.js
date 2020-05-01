@@ -13,7 +13,7 @@ class TruckForm extends Component {
         e.preventDefault();
         // if (formValid(this.state)) {
             const data = new FormData(e.target);
-            fetch('/api/createtruck', {
+            fetch('/truck', {
                 method: 'POST',
                 body: JSON.stringify({
                     truckName: e.target.truckName.value
