@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 //Routes
@@ -30,8 +30,10 @@ require("./routes/userAPI")(app);
 require("./routes/truckAPI")(app);
 
 
-db.sequelize.sync({ force: true }).then(()=>{
+
+db.sequelize.sync({ force: false }).then(()=>{
   app.listen(PORT, function(){
+
     console.log(`Listening on port ${PORT}`)
 });
 });
