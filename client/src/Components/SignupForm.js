@@ -49,6 +49,7 @@ class SignupPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if (formValid(this.state)) {
+<<<<<<< HEAD
             const data = new FormData(e.target);
             
             fetch('/signup', {
@@ -72,6 +73,16 @@ class SignupPage extends Component {
                     
                     this.props.history.push('/truck');
               })
+=======
+            const data = {...this.state};
+            delete data.formErrors;
+            console.log(data);
+            fetch('/api/createuser', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
+            });
+>>>>>>> 655f98b5349f9fda2777ed220d3b666404528904
 
         } else {
             console.log("form is not valid");
@@ -106,7 +117,7 @@ class SignupPage extends Component {
                         ? "phone number must be exactly 10 numbers"
                         : "";
                 break;
-            case "username":    
+            case "username":
                 formErrors.username =
                     value.length < 5
                         ? "minimum 5 characters required"
@@ -285,6 +296,7 @@ class SignupPage extends Component {
                                         className="landing-btn col-4 mt-3"
                                         variant="primary"
                                         type="submit"
+                                    // userID={this.state.user}
                                     >
                                         Submit
                                     </Button>

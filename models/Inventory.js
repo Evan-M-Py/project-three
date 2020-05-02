@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         quantity: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         unit: {
@@ -17,16 +17,15 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         price: {
-            type: DataTypes.DECIMAL(6, 2),
+            type: DataTypes.STRING,
             allowNull: false
         }
     });
 
     Inventory.associate = function (models) {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
+
         Inventory.belongsTo(models.Truck, {
-            foreignKey: "truck_id"
+            foreignKey: {allowNull: false}
         });
     };
 

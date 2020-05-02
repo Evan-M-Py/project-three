@@ -1,13 +1,19 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+
 const db = require("../models");
+
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
-    function (username, password, done) {
+    // Our user will sign in using an email, rather than a "username"
+    {
+        usernameField: "email"
+    },
+    function (email, password, done) {
         // When a user tries to sign in this code runs
         db.User.findOne({
             where: {
-                email: username
+                email: email
             }
         }).then(function (dbUser) {
             // If there's no user with the given email
@@ -33,8 +39,10 @@ passport.use(new LocalStrategy(
 passport.serializeUser(function (user, cb) {
     cb(null, user);
 });
+
 passport.deserializeUser(function (obj, cb) {
     cb(null, obj);
 });
+
 // Exporting our configured passport
 module.exports = passport;

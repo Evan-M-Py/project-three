@@ -1,20 +1,23 @@
-DROP DATABASE cruisineDB;
+DROP DATABASE crusine_db;
 
-CREATE DATABASE cruisineDB;
+CREATE DATABASE crusine_db;
 
-USE cruisineDB;
+USE crusine_db;
+
+
+-- ****The MySQL TABLES
 
 CREATE TABLE users (
 	user_id INT NOT NULL AUTO_INCREMENT,
+		firstname VARCHAR(20) NOT NULL,
+		lastname VARCHAR(20) NOT NULL,
+        phone VARCHAR(15) NOT NULL,
     email VARCHAR(45) NOT NULL,
     user_name VARCHAR(30) NOT NULL, 
     user_pass VARCHAR(30) NOT NULL,
     truck_id INT, 
     PRIMARY KEY (user_id)
 );
-
-ALTER TABLE users
-ADD FOREIGN KEY (truck_id) REFERENCES trucks(truck_id);
 
 CREATE TABLE trucks(
 	truck_id INT NOT NULL AUTO_INCREMENT,
@@ -23,8 +26,12 @@ CREATE TABLE trucks(
     PRIMARY KEY (truck_id)
 );
 
+ALTER TABLE users
+ADD FOREIGN KEY (truck_name) REFERENCES trucks(truck_name);
+
 ALTER TABLE trucks
-ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
+ADD FOREIGN KEY (user_name) REFERENCES users(user_name);
+
 
 DROP TABLE IF EXISTS inventory;
 
@@ -32,11 +39,12 @@ CREATE TABLE inventory(
 	inv_id INT NOT NULL AUTO_INCREMENT,
     item_name VARCHAR(60) NOT NULL,
     category VARCHAR(15) NOT NULL,
-    quantity_type VARCHAR(15) NOT NULL,
-    quantity INT NOT NULL,
-    total_cost DECIMAL(6,2) NOT NULL,
+    quantity VARCHAR(60) NOT NULL,
+    unit VARCHAR(10) NOT NULL,
+    price VARCHAR(60) NOT NULL,
     truck_id INT, 
-    PRIMARY KEY (inv_id)
+    PRIMARY KEY (inv_id),
+    FOREIGN KEY (truck_id) REFERENCES trucks(truck_id)
 );
 
 ALTER TABLE inventory
@@ -48,7 +56,8 @@ CREATE TABLE expenses(
     price DECIMAL(6,2) NOT NULL,
     category VARCHAR(30) NOT NULL,
     truck_id INT, 
-    PRIMARY KEY (exp_id)
+    PRIMARY KEY (exp_id),
+    FOREIGN KEY (truck_id) REFERENCES trucks(truck_id)
 );
 
 ALTER TABLE expenses
@@ -61,7 +70,9 @@ CREATE TABLE todo(
     complete BOOLEAN NOT NULL,
     user_id INT, 
     truck_id INT, 
-    PRIMARY KEY (todo_id)
+    PRIMARY KEY (todo_id),
+    FOREIGN KEY (truck_id) REFERENCES trucks(truck_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 ALTER TABLE todo
