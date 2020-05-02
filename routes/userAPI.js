@@ -5,19 +5,20 @@ module.exports = function (app) {
     app.post("/api/createuser", function (req, res) {
         console.log("New User:")
         console.log(req.body)
-
         db.Truck.create({
-            truck_name: req.body.truckName
-        }).then(response => {
+            truckName: req.body.truckName
+        }).then(truck => {
             db.User.create({
-                firstname: req.body.firstName,
-                lastname: req.body.lastName,
-                phone: req.body.phoneNumber,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                phoneNumber: req.body.phoneNumber,
                 email: req.body.email,
-                user_name: req.body.username,
-                user_pass: req.body.password
-            }).then(response => {
-                res.json(true);
+                username: req.body.username,
+                password: req.body.password
+            }).then(user => {
+                // This sends back the new user and truck data as an object
+                // Now we can save this in state
+                res.json({ truck, user });
             })
         })
     })
