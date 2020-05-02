@@ -50,11 +50,13 @@ class SignupPage extends Component {
         e.preventDefault();
         // Possible change: send data from state, not from the DOM form element
         if (formValid(this.state)) {
-            const data = new FormData(e.target);
-
+            const data = { ...this.state };
+            delete data.formErrors;
+            console.log(data);
             fetch('/api/createuser', {
                 method: 'POST',
-                body: data,
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
             });
 
         } else {
