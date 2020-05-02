@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         quantity: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         unit: {
@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         price: {
-            type: DataTypes.DECIMAL(6, 2),
+            type: DataTypes.STRING,
             allowNull: false
         }
     });
