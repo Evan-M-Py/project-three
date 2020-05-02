@@ -1,4 +1,5 @@
 const db = require("../models")
+const passport = require('passport');
 
 module.exports = function (app) {
     //User API routes go here
@@ -23,4 +24,10 @@ module.exports = function (app) {
             })
         })
     })
+    app.post('/login', passport.authenticate('local'), (req, res) => {
+        // console.log(req.user)
+        res.status(200).json(req.user.dataValues);
+    })
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
 }

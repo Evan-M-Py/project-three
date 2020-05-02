@@ -51,10 +51,12 @@ class SignupPage extends Component {
             const data = { ...this.state };
             delete data.formErrors;
             console.log(data);
+
             axios.post('/api/createuser', data).then(rest => {
                 this.props.handleChange(rest.data.user.id);
                 
             });
+
 
         } else {
             console.log("form is not valid");
