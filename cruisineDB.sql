@@ -39,9 +39,9 @@ CREATE TABLE inventory(
 	inv_id INT NOT NULL AUTO_INCREMENT,
     item_name VARCHAR(60) NOT NULL,
     category VARCHAR(15) NOT NULL,
-    quantity INT NOT NULL,
+    quantity VARCHAR(60) NOT NULL,
     unit VARCHAR(10) NOT NULL,
-    price DECIMAL(6,2) NOT NULL,
+    price VARCHAR(60) NOT NULL,
     truck_id INT, 
     PRIMARY KEY (inv_id),
     FOREIGN KEY (truck_id) REFERENCES trucks(truck_id)
