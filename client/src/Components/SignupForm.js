@@ -56,7 +56,9 @@ class SignupPage extends Component {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: { 'Content-Type': 'application/json' }
-            });
+            }).then(response => {
+                this.props.history.push('/dashboard')
+            })
 
         } else {
             console.log("form is not valid");
