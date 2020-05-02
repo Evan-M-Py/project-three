@@ -6,10 +6,11 @@ import DropdownBase from '../DropdownBase';
 class TopNav extends Component {
 
     state = {
-        toggle: false
+        toggle: false,
+        trucks: ''
     }
 
-    dummyOptions = ['one', 'two', 'three']
+    truckOptions = [this.state.trucks]
     
     style = {
         navStyle: {
@@ -17,6 +18,8 @@ class TopNav extends Component {
             left: '10vw'
         }
     }
+
+    
 
     render() {
         return (

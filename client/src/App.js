@@ -37,15 +37,15 @@ const App = (props) => {
             {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav />}
             <Switch>
 
-//-------------------------------------------------------------------------CHECK THIS OUT---------------------------------------------------------------------------------
-                //<Route exact path="/" component={LoginPage} />
+{/* //-------------------------------------------------------------------------CHECK THIS OUT--------------------------------------------------------------------------------- */}
+                {/* //<Route exact path="/" component={LoginPage} /> */}
                 
 
                 <Route exact path="/">
-                    <LoginForm handleChange={handleContextChange} />
+                    <LoginPage handleChange={handleContextChange} />
                 </Route>
 
-                <Route exact path="/signup" component={SignupPage} />
+                <Route exact path="/signup" component={SignupPage} >
                     {/* <SignupPage userID={props.userID} /> */}
 
         
