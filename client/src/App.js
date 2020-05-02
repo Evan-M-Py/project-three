@@ -23,12 +23,8 @@ function App() {
         <Route exact path="/">
             <LoginForm />
         </Route>
-        <Route exact path="/signup">
-            <SignupPage/>
-        </Route>
-        <Route exact path="/truck">
-            <TruckForm/>
-        </Route>
+        <Route exact path="/signup" component={SignupPage} />
+        <Route exact path="/truck" component={TruckForm} />
         <Route exact path="/dashboard">                              
             <InventoryPage/>
         </Route>

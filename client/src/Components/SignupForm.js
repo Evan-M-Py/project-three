@@ -65,9 +65,13 @@ class SignupPage extends Component {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-              }).then(response => {
-                  this.props.history.push("/truck");
-              });
+              })
+              .then(response => response.json())
+              .then(({ accessToken }) => {
+                    localStorage.setItem('loginToken', accessToken);
+                    
+                    this.props.history.push('/truck');
+              })
 
         } else {
             console.log("form is not valid");

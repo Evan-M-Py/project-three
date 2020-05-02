@@ -21,6 +21,7 @@ class TruckForm extends Component {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
+                    token: localStorage.getItem('loginToken'),
                 },
               }).then(response => {
                   this.props.history.push("/dashboard");

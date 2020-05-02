@@ -7,12 +7,20 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Truck.associate = function (models) {
-        // We're saying that a Trucks should belong to an Author
-        // A Trucks can't be created without an Author due to the foreign key constraint
+        // We're saying that a Trucks should belong to an User
+        // A Trucks can't be created without an User due to the foreign key constraint
         Truck.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: true
-            }
+            foreignKey: {allowNull: false}
+        });
+    };
+    Truck.associate = function (models) {
+        Truck.hasMany(models.Inventory, {
+            onDelete: "cascade"
+        });
+    };
+    Truck.associate = function (models) {
+        Truck.hasMany(models.Expense, {
+            foreignKey: {allowNull: false}
         });
     };
 

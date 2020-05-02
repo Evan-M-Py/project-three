@@ -15,7 +15,10 @@ module.exports = function(app) {
             username: req.body.username,
             user_pass: req.body.password
         }).then(response => {
-            res.json(true);
+            const username = req.body.username
+            const user = { name: username }
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+            res.json({ accessToken: accessToken });
         })
     })
     app.post("/", function(req, res) {
