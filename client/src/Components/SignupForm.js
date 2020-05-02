@@ -49,11 +49,13 @@ class SignupPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if (formValid(this.state)) {
-            const data = new FormData(e.target);
-
+            const data = {...this.state};
+            delete data.formErrors;
+            console.log(data);
             fetch('/api/createuser', {
                 method: 'POST',
-                body: data,
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
             });
 
         } else {
