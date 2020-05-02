@@ -1,10 +1,11 @@
 const db = require("../models")
 
-module.exports = function(app) {
+module.exports = function (app) {
     //User API routes go here
-    app.post("/api/createuser", function(req, res) {
+    app.post("/api/createuser", function (req, res) {
         console.log("New User:")
         console.log(req.body)
+
         db.Truck.create({
             truck_name: req.body.truckName
         }).then(response => {
