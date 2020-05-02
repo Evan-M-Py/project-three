@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from 'axios'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -24,10 +24,8 @@ const formValid = ({ formErrors, ...rest }) => {
 };
 
 class SignupPage extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
+    state = {
             firstName: "",
             lastName: "",
             email: "",
@@ -43,22 +41,22 @@ class SignupPage extends Component {
                 username: "",
                 password: "",
                 truckName: "",
-            },
+                },
         };
-    }
+
     handleSubmit = (e) => {
         e.preventDefault();
+        // Possible change: send data from state, not from the DOM form element
         if (formValid(this.state)) {
-            const data = {...this.state};
+            const data = { ...this.state };
             delete data.formErrors;
             console.log(data);
-            fetch('/api/createuser', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { 'Content-Type': 'application/json' }
-            }).then(response => {
-                this.props.history.push('/dashboard')
-            })
+
+            axios.post('/api/createuser', data).then(rest => {
+                this.props.handleChange(rest.data.user.id);
+                
+            });
+
 
         } else {
             console.log("form is not valid");

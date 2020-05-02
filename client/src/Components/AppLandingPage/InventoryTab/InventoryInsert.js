@@ -11,7 +11,7 @@ const categoryOptions = ['Produce', 'Meat', 'Dairy', 'Non-Parishable', 'Spices',
 function InventoryInsert(props) {
 
     const [text, setText] = useState({
-        item_name: '',
+        itemName: '',
         quantity: '',
         price: ''
 
@@ -74,7 +74,7 @@ function InventoryInsert(props) {
         <Container style={style.container}>
             <Row>
                 <p style={style.itemLabel}>Item Name:</p>
-                <Input style={style.inputStyle} placeholder='enter item name' inputLabel='Item Name' handleInputChange={handleInputChange} name='item_name' value={text.itemName} />
+                <Input style={style.inputStyle} placeholder='enter item name' inputLabel='Item Name' handleInputChange={handleInputChange} name='itemName' value={text.itemName} />
                 <DropdownBase buttonLabel={'select category'} style={style.dropdownStyle} handleDropdownChange={setCategory} name='category' value={category} options={categoryOptions} />
             </Row>
             <Row>

@@ -9,6 +9,7 @@ import Brand from "../Components/Brand";
 import Container from "react-bootstrap/Container";
 import axios from 'axios';
 
+
 class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -89,6 +90,7 @@ class LoginPage extends Component {
             </div>
         );
     }
+
 };
 
 export default LoginPage;
