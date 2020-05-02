@@ -27,10 +27,10 @@ CREATE TABLE trucks(
 );
 
 ALTER TABLE users
-ADD FOREIGN KEY (truck_id) REFERENCES trucks(truck_id);
+ADD FOREIGN KEY (truck_name) REFERENCES trucks(truck_name);
 
 ALTER TABLE trucks
-ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
+ADD FOREIGN KEY (user_name) REFERENCES users(user_name);
 
 
 DROP TABLE IF EXISTS inventory;

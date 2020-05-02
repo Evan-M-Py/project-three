@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
         // Associating Author with Posts
         // When an Author is deleted, also delete any associated Posts
         Expense.belongsTo(models.Truck, {
-            foreignKey: "truck_id"
+            foreignKey: {allowNull: false}
         });
     };
 
