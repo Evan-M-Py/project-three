@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import FullAppPage from './Components/AppLandingPage/FullAppPage/FullAppPage'
 import SignupPage from './Components/SignupForm';
-
+import UserContext from './utils/userContext'
 import { Switch, Route, useLocation } from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
@@ -18,9 +18,7 @@ const App = (props) => {
     // in function for the sign up info in, in a .then set user to currentUserID
     //In the submit button, do an onclick
 
-    const state = {
-
-    }
+    const [ userID, setUserID ] = useState({})
 
     const location = useLocation()
 
@@ -28,7 +26,11 @@ const App = (props) => {
         parentDiv: {
             display: "flex"
         }
-    }
+    };
+
+    const  handleContextChange = (props) => {
+        console.log('context', props)
+    };
 
     return (
         <div >
@@ -36,16 +38,17 @@ const App = (props) => {
             <Switch>
 
                 <Route exact path="/">
-                    <LoginForm />
+                    <LoginForm handleChange={handleContextChange} />
                 </Route>
 
                 <Route exact path="/signup">
                     {/* <SignupPage userID={props.userID} /> */}
-                    <SignupPage />
+                    <SignupPage handleChange={handleContextChange}/>
                 </Route>
 
 
                 {/* <div > */}
+                <UserContext.Provider value={userID}>
                 <div style={style.parentDiv}>
                     {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
 
@@ -60,7 +63,7 @@ const App = (props) => {
                     </Route>
 
                     <Route exact path="/expenses">
-                        <InventoryPage />
+                        <ExpensePage />
                     </Route>
 
                     {/* <Route path='*'>
@@ -69,7 +72,7 @@ const App = (props) => {
 
 
                 </div>
-
+                </UserContext.Provider>
             </Switch>
         </div>
     )

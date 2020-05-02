@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './TopNav.css';
+import DropdownBase from '../DropdownBase';
 
 
 class TopNav extends Component {
@@ -8,6 +9,14 @@ class TopNav extends Component {
         toggle: false
     }
 
+    dummyOptions = ['one', 'two', 'three']
+    
+    style = {
+        navStyle: {
+            top: '20px',
+            left: '10vw'
+        }
+    }
 
     render() {
         return (
@@ -15,6 +24,9 @@ class TopNav extends Component {
                 <div className="logo">
                     <h4>Crusine</h4>
                 </div>
+
+                    <DropdownBase style={this.style.navStyle} buttonLabel='Choose your Truck' options={this.dummyOptions}/>
+
                 <ul className={`navLinks ${this.state.toggle ? "nav-active" : ""}`}>
                     <li><a className={`navLinkFade1 ${this.state.toggle ? "toggled" : ""}`} href="#">Inventory</a></li>
 
