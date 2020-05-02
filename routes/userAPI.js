@@ -13,7 +13,7 @@ module.exports = function(app) {
                 lastname: req.body.lastName,
                 phone: req.body.phoneNumber,
                 email: req.body.email,
-                username: req.body.username,
+                user_name: req.body.username,
                 user_pass: req.body.password
             }).then(response => {
                 res.json(true);

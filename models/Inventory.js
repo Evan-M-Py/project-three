@@ -23,10 +23,9 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Inventory.associate = function (models) {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
+
         Inventory.belongsTo(models.Truck, {
-            foreignKey: "truck_id"
+            foreignKey: {allowNull: false}
         });
     };
 

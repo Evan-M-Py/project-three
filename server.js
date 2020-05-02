@@ -31,7 +31,7 @@ require("./routes/truckAPI")(app);
 
 
 
-db.sequelize.sync({ force: false }).then(()=>{
+db.sequelize.sync({ force: true }).then(()=>{
   app.listen(PORT, function(){
 
     console.log(`Listening on port ${PORT}`)

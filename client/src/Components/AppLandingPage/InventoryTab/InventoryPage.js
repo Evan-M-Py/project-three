@@ -3,9 +3,6 @@ import {Row, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InventoryDisplayTable from './InventoryTableDisplay';
 import axios from "axios";
-
-
-
 import ButtonForInventoryComponents from "./InsertInventoryButton"
 
 function InventoryPage() {
