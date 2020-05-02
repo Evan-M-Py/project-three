@@ -1,14 +1,14 @@
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define("User", {
-        firstname: {
+        firstName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        lastname: {
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        phone: {
+        phoneNumber: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_pass: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false,
             // Add in bcrypt here to get password hashing

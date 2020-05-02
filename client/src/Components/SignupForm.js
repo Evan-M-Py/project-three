@@ -48,8 +48,9 @@ class SignupPage extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        // Possible change: send data from state, not from the DOM form element
         if (formValid(this.state)) {
-            const data = {...this.state};
+            const data = { ...this.state };
             delete data.formErrors;
             console.log(data);
             fetch('/api/createuser', {
