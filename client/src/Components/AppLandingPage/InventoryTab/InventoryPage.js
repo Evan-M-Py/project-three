@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Row, Container} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Row, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InventoryDisplayTable from './InventoryTableDisplay';
 import axios from "axios";
@@ -14,34 +14,35 @@ function InventoryPage() {
         unit: 'gal',
         quantity: '3',
         price: 's'
-      }
+    }
     ]);
 
     const [invDisplay, setInvDisplay] = useState([{}]);
 
 
     const inventoryInsertAJAX = (thing) => {
-      console.log(thing)
-        return axios.post("/api/Inventory", thing );
+        console.log(thing)
+        return axios.post("/api/inventory", thing);
     };
 
     const inventoryTableAJAX = (thing) => {
-      console.log(thing)
-        return axios.post("/api/Inventory", thing ).then((res) => {
-          setInvDisplay(res);
+        console.log(thing)
+        return axios.post("/api/inventory", thing).then((res) => {
+            setInvDisplay(res);
         }
-      )};
-  return (
-     <Container>
-        <Row>
-        <ButtonForInventoryComponents invAJAXPost={inventoryInsertAJAX} />
-        </Row>
+        )
+    };
+    return (
+        <Container>
+            <Row>
+                <ButtonForInventoryComponents invAJAXPost={inventoryInsertAJAX} />
+            </Row>
 
-        <Row>
-           <InventoryDisplayTable data={invDisplay} invItem={inv} /> 
-        </Row>    
-    </Container>
-  )
+            <Row>
+                <InventoryDisplayTable data={invDisplay} invItem={inv} />
+            </Row>
+        </Container>
+    )
 }
 
 export default InventoryPage;

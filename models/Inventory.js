@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     const Inventory = sequelize.define("Inventory", {
-        item_name: {
+        itemName: {
             type: DataTypes.STRING,
             allowNull: false,
         },

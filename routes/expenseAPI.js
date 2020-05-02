@@ -1,14 +1,14 @@
 const Expense = require("../models/Expense");
 
 module.exports = function (app) {
-    app.post("/api/Expense", function (req, res) {
+    app.post("/api/expense", function (req, res) {
         Expense.create(req.body).then(function (crusine_db) {
             // res.json(crusine_db);
         });
 
     });
 
-    app.get("/api/Expense", function (req, res) {
+    app.get("/api/expense", function (req, res) {
         Expense.findAll({}).then(function (crusine_db) {
             // returns a JSON object with table contents?????
 

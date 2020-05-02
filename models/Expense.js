@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     const Expense = sequelize.define("Expense", {
-        Expense: {
+        expense: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
         // Associating Author with Posts
         // When an Author is deleted, also delete any associated Posts
         Expense.belongsTo(models.Truck, {
-            foreignKey: {allowNull: false}
+            foreignKey: { allowNull: false }
         });
     };
 
