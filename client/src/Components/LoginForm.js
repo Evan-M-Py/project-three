@@ -41,6 +41,7 @@ const LoginForm = (props) => {
                                     className="landing-btn col-4 mt-3"
                                     variant="primary"
                                     type="submit"
+                                    
                                 >
                                     Login
                                 </Button>
