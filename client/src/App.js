@@ -18,7 +18,7 @@ const App = (props) => {
     // in function for the sign up info in, in a .then set user to currentUserID
     //In the submit button, do an onclick
 
-    const [ userID, setUserID ] = useState({})
+    const [userID, setUserID] = useState({})
 
     const location = useLocation()
 
@@ -28,8 +28,8 @@ const App = (props) => {
         }
     };
 
-    const  handleContextChange = (props) => {
-       setUserID(props)
+    const handleContextChange = (props) => {
+        setUserID(props)
     };
 
     return (
@@ -43,35 +43,34 @@ const App = (props) => {
 
                 <Route exact path="/signup">
                     {/* <SignupPage userID={props.userID} /> */}
-                    <SignupPage handleChange={handleContextChange}/>
+                    <SignupPage handleChange={handleContextChange} />
                 </Route>
 
-
-                {/* <div > */}
+                {/* Providing context for dashboard, inventory, and expenses */}
                 <UserContext.Provider value={userID}>
-                <div style={style.parentDiv}>
-                    {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
 
+                    <div style={style.parentDiv}>
 
+                        {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
 
-                    <Route exact path="/dashboard">
-                        <Dashboard />
-                    </Route>
+                        <Route exact path="/dashboard">
+                            <Dashboard />
+                        </Route>
 
-                    <Route exact path="/inventory">
-                        <InventoryPage />
-                    </Route>
+                        <Route exact path="/inventory">
+                            <InventoryPage />
+                        </Route>
 
-                    <Route exact path="/expenses">
-                        <ExpensePage />
-                    </Route>
+                        <Route exact path="/expenses">
+                            <ExpensePage />
+                        </Route>
 
-                    {/* <Route path='*'>
+                        {/* <Route path='*'>
                         <InventoryPage />
                     </Route> */}
 
 
-                </div>
+                    </div>
                 </UserContext.Provider>
             </Switch>
         </div>
