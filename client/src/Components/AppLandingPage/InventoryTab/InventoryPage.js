@@ -5,7 +5,7 @@ import InventoryDisplayTable from './InventoryTableDisplay';
 import axios from "axios";
 import ButtonForInventoryComponents from "./InsertInventoryButton"
 
-function InventoryPage() {
+function InventoryPage(props) {
 
     const [inv, setInv] = useState([{
         inv_id: '1',
@@ -27,7 +27,7 @@ function InventoryPage() {
 
     const inventoryTableAJAX = (thing) => {
         console.log(thing)
-        return axios.post("/api/inventory", thing).then((res) => {
+        return axios.post("/api/inventory/" + props.userID, thing).then((res) => {
             setInvDisplay(res);
         }
         )
@@ -39,7 +39,7 @@ function InventoryPage() {
             </Row>
 
             <Row>
-                <InventoryDisplayTable data={invDisplay} invItem={inv} />
+                <InventoryDisplayTable data={invDisplay}  />
             </Row>
         </Container>
     )

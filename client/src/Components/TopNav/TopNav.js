@@ -19,7 +19,7 @@ class TopNav extends Component {
         }
     }
 
-    
+    dummyOptions = ['dont', 'yell', 'at', 'me']
 
     render() {
         return (

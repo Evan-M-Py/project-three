@@ -11,8 +11,12 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/inventory", function (req, res) {
-        db.Inventory.findAll({}).then(function (crusine_db) {
+    app.get("/api/inventory/:userID", function (req, res) {
+        db.Inventory.findAll({
+            where: {
+                userID: req.params.userID
+              }
+        }).then(function (crusine_db) {
             // returns a JSON object with table contents?????
 
             res.json(crusine_db);
