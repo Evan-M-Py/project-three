@@ -7,7 +7,7 @@ import UserContext from './utils/userContext'
 import { Switch, Route, useLocation } from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
-import LoginForm from './Components/LoginForm';
+import LoginPage from './Components/LoginForm';
 import TopNav from './Components/TopNav/TopNav.js';
 import Dashboard from './Components/DashboardTab/Dashboard';
 import ExpensePage from './Components/AppLandingPage/ExpenseTab/ExpensePage';
@@ -37,16 +37,22 @@ const App = (props) => {
             {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav />}
             <Switch>
 
+                {/* -------------------------------------------------------------------------CHECK THIS OUT------------------------------------------------------------------- */}
+                {/* <Route exact path="/" component={LoginPage} /> */}
+
+
                 <Route exact path="/">
                     <LoginForm handleChange={handleContextChange} />
                 </Route>
 
-                <Route exact path="/signup">
+                <Route exact path="/signup" component={SignupPage} >
                     {/* <SignupPage userID={props.userID} /> */}
                     <SignupPage handleChange={handleContextChange} />
                 </Route>
 
-                {/* Providing context for dashboard, inventory, and expenses */}
+
+
+                {/* <div > */}
                 <UserContext.Provider value={userID}>
 
                     <div style={style.parentDiv}>
