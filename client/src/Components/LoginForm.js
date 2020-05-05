@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -8,9 +8,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Brand from "../Components/Brand";
 import Container from "react-bootstrap/Container";
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
-
-
+// import { Redirect } from 'react-router-dom'
 
 
 class LoginPage extends Component {
@@ -23,7 +21,6 @@ class LoginPage extends Component {
             loginStatus: false
         };
     }
-  
     handleSubmit = (e) => {
         e.preventDefault();
         this.state.username = e.target.username.value
@@ -41,7 +38,6 @@ class LoginPage extends Component {
         } else
         return (
             <div  className="login">
-                    
                     <Container className="login d-flex align-items-center w-100">
                         <Row className="justify-content-center w-100">
                             <Jumbotron className="col-8">
@@ -87,11 +83,11 @@ class LoginPage extends Component {
                             </Jumbotron>
                         </Row>
                     </Container>
-                
+
             </div>
         );
     }
-
+    
 };
 
 export default LoginPage;

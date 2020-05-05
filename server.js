@@ -2,13 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
 const db = require('./models')
-<<<<<<< HEAD
-// import passport from 'passport';
-// const jwt = require('jwt');
-
-=======
 const passport = require('passport')
->>>>>>> 4107df99d90f5bb095817c43944c5d5c54020e70
 //Set up the Express app
 const app = express();
 const PORT = process.env.PORT || 8080;
