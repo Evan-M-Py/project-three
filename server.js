@@ -37,7 +37,10 @@ require("./routes/truckAPI")(app);
 // const userRoutes = require('./routes/user-routes');
 // app.use('api/users', userRoutes);
 
-db.sequelize.sync({ force: false }).then(() => {
+
+
+
+db.sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, function () {
 
 
