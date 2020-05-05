@@ -8,13 +8,9 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
 import LoginForm from './Components/LoginForm';
-<<<<<<< HEAD
-import TruckForm from './Components/TruckForm'
-=======
 import TopNav from './Components/TopNav/TopNav.js';
 import Dashboard from './Components/DashboardTab/Dashboard';
 import ExpensePage from './Components/AppLandingPage/ExpenseTab/ExpensePage';
->>>>>>> 655f98b5349f9fda2777ed220d3b666404528904
 
 
 const App = (props) => {
@@ -48,41 +44,6 @@ const App = (props) => {
                     <SignupPage />
                 </Route>
 
-<<<<<<< HEAD
-function App() {
- const location = useLocation()
-
-  return (
-    <div>
-      {location.pathname !== '/truck' && location.pathname !== '/signup' && location.pathname !== '/' && <SideNav/>}
-                        
-    <Switch>
-        
-        <Route exact path="/">
-            <LoginForm />
-        </Route>
-        <Route exact path="/signup" component={SignupPage} />
-        <Route exact path="/truck" component={TruckForm} />
-        <Route exact path="/dashboard">                              
-            <InventoryPage/>
-        </Route>
-        <Route exact path="/inventory">
-            <InventoryPage/>
-        </Route>
-        <Route exact path="/expenses">
-            <InventoryPage/>
-        </Route>
-        <Route path='*'>
-            
-        </Route>
-    </Switch>
-    {/* <FullAppPage/> */}
-    
-    </div>
-  )
-}
-=======
->>>>>>> 655f98b5349f9fda2777ed220d3b666404528904
 
                 {/* <div > */}
                 <div style={style.parentDiv}>
