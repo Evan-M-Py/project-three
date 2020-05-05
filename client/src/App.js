@@ -42,7 +42,7 @@ const App = (props) => {
 
 
                 <Route exact path="/">
-                    <LoginForm handleChange={handleContextChange} />
+                    <LoginPage handleChange={handleContextChange} />
                 </Route>
 
                 <Route exact path="/signup" component={SignupPage} >
