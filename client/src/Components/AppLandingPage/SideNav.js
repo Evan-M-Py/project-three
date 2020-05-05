@@ -1,41 +1,3 @@
-// import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import Wrapper from '../wrapper';
-
-
-
-// function SideNav() {
-
-//     const style = {
-//         navStyle: {
-//             height: '100vh',
-//             width: '30px',
-//             backgroundColor: 'blue',
-//             margin: '0'
-//         },
-//         buttonStyle: {
-
-//         },
-//         parent: {
-//             display: 'flex'
-//         }
-//     }
-
-//     return (
-//         <div>
-//             {/* <div style={style.parent}> */}
-//             <Wrapper inside={(
-//                 <div className='col-md-2' style={style.navStyle}>
-//                     s
-//                 </div>
-//             )} />
-//         </div>
-
-//     )
-// }
-
-// export default SideNav;
-
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Wrapper from '../wrapper';
@@ -43,6 +5,8 @@ import SectionSelectorButton from './SectionSelectorButton';
 import DashIcon from '../../icons/dash.png';
 import ExpensesIcon from '../../icons/expenses.png';
 import InventoryIcon from '../../icons/inventory.png';
+
+
 function SideNav() {
     const style = {
         navStyle: {
