@@ -1,41 +1,3 @@
-// import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import Wrapper from '../wrapper';
-
-
-
-// function SideNav() {
-
-//     const style = {
-//         navStyle: {
-//             height: '100vh',
-//             width: '30px',
-//             backgroundColor: 'blue',
-//             margin: '0'
-//         },
-//         buttonStyle: {
-
-//         },
-//         parent: {
-//             display: 'flex'
-//         }
-//     }
-
-//     return (
-//         <div>
-//             {/* <div style={style.parent}> */}
-//             <Wrapper inside={(
-//                 <div className='col-md-2' style={style.navStyle}>
-//                     s
-//                 </div>
-//             )} />
-//         </div>
-
-//     )
-// }
-
-// export default SideNav;
-
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Wrapper from '../wrapper';
@@ -43,6 +5,8 @@ import SectionSelectorButton from './SectionSelectorButton';
 import DashIcon from '../../icons/dash.png';
 import ExpensesIcon from '../../icons/expenses.png';
 import InventoryIcon from '../../icons/inventory.png';
+import { Link } from 'react-router-dom';
+
 function SideNav() {
     const style = {
         navStyle: {
@@ -63,9 +27,19 @@ function SideNav() {
     return (
         <Wrapper inside={(
             <div style={style.navStyle}>
-                <SectionSelectorButton select={selectPage} buttonImg={DashIcon} sectionName='Dashboard' style={style.buttonStyle} />
-                <SectionSelectorButton select={selectPage} buttonImg={ExpensesIcon} sectionName='Inventory' style={style.buttonStyle} />
-                <SectionSelectorButton select={selectPage} buttonImg={InventoryIcon} sectionName='Expenses' style={style.buttonStyle} />
+                
+                <Link to='/dashboard'>
+                    <SectionSelectorButton select={selectPage} buttonImg={DashIcon} sectionName='Dashboard' style={style.buttonStyle} />
+                </Link>
+                
+                <Link to='/inventory'>
+                    <SectionSelectorButton select={selectPage} buttonImg={InventoryIcon} sectionName='Inventory' style={style.buttonStyle} />
+                </Link>
+                
+                <Link to='/expenses'>
+                    <SectionSelectorButton select={selectPage} buttonImg={ExpensesIcon} sectionName='Expenses' style={style.buttonStyle} />
+                </Link>
+            
             </div>
         )} />
     )

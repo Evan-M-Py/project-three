@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     const Inventory = sequelize.define("Inventory", {
-        item_name: {
+        itemName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
     Inventory.associate = function (models) {
 
         Inventory.belongsTo(models.Truck, {
-            foreignKey: {allowNull: false}
+            foreignKey: { allowNull: false }
         });
     };
 

@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import './TopNav.css';
+import DropdownBase from '../DropdownBase';
 
 
 class TopNav extends Component {
 
     state = {
-        toggle: false
+        toggle: false,
+        trucks: ''
     }
 
+    truckOptions = [this.state.trucks]
+    
+    style = {
+        navStyle: {
+            top: '20px',
+            left: '10vw'
+        }
+    }
+
+    dummyOptions = ['dont', 'yell', 'at', 'me']
 
     render() {
         return (
@@ -15,6 +27,9 @@ class TopNav extends Component {
                 <div className="logo">
                     <h4>Crusine</h4>
                 </div>
+
+                    <DropdownBase style={this.style.navStyle} buttonLabel='Choose your Truck' options={this.dummyOptions}/>
+
                 <ul className={`navLinks ${this.state.toggle ? "nav-active" : ""}`}>
                     <li><a className={`navLinkFade1 ${this.state.toggle ? "toggled" : ""}`} href="#">Inventory</a></li>
 
