@@ -36,20 +36,14 @@ const opts = {
   );
 
 module.exports = function(app) {
-    //Truck API routes go here
+    app.get("/api/truck/:userID", function (req, res) {
+        db.Truck.findAll({
+            // where: {
+            //     userID: req.params.userID
+            //   }
+        }).then(function (crusine_db) {
+            res.json(crusine_db);
+        });
+    });
 
-    app.post("/truck", function(req, res, next) {
-        // check req.headers.token matches the users token
-        // using jwt passport
-        passport.authenticate('jwt', {session: false}, (err, user, info)=>{
-            // console.log(user);
-        })(req, res, next)
-        // db.Truck.create({
-        //     truck_name: req.body.truckName
-        //     // add in the user ID as foreign key using token?
-
-        // }).then(response => {
-        //     res.json(true);
-        // })
-    })
 }

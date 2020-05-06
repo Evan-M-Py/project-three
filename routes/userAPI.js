@@ -7,9 +7,6 @@ module.exports = function (app) {
     app.post("/api/createuser", function (req, res) {
         console.log("New User:")
         console.log(req.body)
-        db.Truck.create({
-            truckName: req.body.truckName
-        }).then(truck => {
             db.User.create({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -18,6 +15,11 @@ module.exports = function (app) {
                 username: req.body.username,
                 password: req.body.password
             }).then(user => {
+                console.log(user)
+                db.Truck.create({
+                    truckName: req.body.truckName,
+                    UserId: user.dataValues.id
+                }).then(truck => {
                 // This sends back the new user and truck data as an object
                 // Now we can save this in state
                 console.log(user.dataValues.id);
@@ -34,7 +36,25 @@ module.exports = function (app) {
         } else {
             res.status(200).json(req.user.dataValues);
         }
+        // console.log(req.user)
+        
+        db.Truck.findAll({
+            
+            where: {
+                UserId: req.user.dataValues.id
+              },
+
+        }).then(function (trucks) {
+            console.log(`truckID:  ${trucks}`);
+            console.log(`UserID: ${req.user.dataValues.id}`)
+            res.status(200).json({ userObj: req.user.dataValues, truckObj: trucks });
+        });
+
+
     })
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
+
+    app.get("/logout", function(req, res) {
+        req.logout();
+        
+    });
 }

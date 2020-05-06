@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './TopNav.css';
 import DropdownBase from '../DropdownBase';
 import Brand from '../Brand'
+import Axios from 'axios';
+import { withRouter } from 'react-router-dom';
+
+
 
 class TopNav extends Component {
 
@@ -21,7 +25,16 @@ class TopNav extends Component {
 
     dummyOptions = ['dont', 'yell', 'at', 'me']
 
+    logoutFunction = () => {
+        Axios.get('/logout').then(
+        
+            this.props.history.push("/")
+                    ) 
+                    this.props.handleContextChange()
+    };
+
     render() {
+        console.log(this.props);
         return (
             <nav className="topNav">
                 <div>
@@ -37,7 +50,7 @@ class TopNav extends Component {
 
                     <li><a className={`navLinkFade3 ${this.state.toggle ? "toggled" : ""}`} href="#">Settings</a></li>
 
-                    <li><a className={`navLinkFade4 ${this.state.toggle ? "toggled" : ""}`} href="#">Logout</a></li>
+                    <li><a className={`navLinkFade4 ${this.state.toggle ? "toggled" : ""}`}  onClick={() => this.logoutFunction()} >Logout</a></li>
 
                 </ul>
 
@@ -55,4 +68,4 @@ class TopNav extends Component {
 }
 
 
-export default TopNav;
+export default withRouter(TopNav);

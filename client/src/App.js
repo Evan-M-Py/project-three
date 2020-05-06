@@ -29,15 +29,14 @@ const App = (props) => {
     };
 
     const  handleContextChange = (props) => {
-       setUserID(props)
-       console.log(UserContext)
+       setUserID(props)     
     };
 
 
 
     return (
         <div >
-            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav />}
+            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav handleContextChange = {handleContextChange} />}
             <Switch>
 
 {/* //-------------------------------------------------------------------------CHECK THIS OUT--------------------------------------------------------------------------------- */}
@@ -46,6 +45,7 @@ const App = (props) => {
                 <UserContext.Provider value={ userID }>
                 <Route exact path="/">
                     <LoginPage  handleContextChange={handleContextChange} />
+                    
                 </Route>
 
                 <Route exact path="/signup" component={SignupPage} >
@@ -61,7 +61,7 @@ const App = (props) => {
                     {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
 
                     <Route exact path="/dashboard" >
-                        <Dashboard />
+                        <Dashboard userID={userID} />
                     </Route>
 
                     <Route exact path="/inventory">
