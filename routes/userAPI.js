@@ -33,24 +33,18 @@ module.exports = function (app) {
             res.json({ msg: "notUser" })
         } else if (data === "wrongPassword") {
             res.json({ msg: "wrongPassword" });
-        } else {
-            res.status(200).json(req.user.dataValues);
-        }
-        // console.log(req.user)
-        
-        db.Truck.findAll({
-            
+        }  else {
+        db.Truck.findAll({ 
             where: {
                 UserId: req.user.dataValues.id
               },
-
         }).then(function (trucks) {
             console.log(`truckID:  ${trucks}`);
             console.log(`UserID: ${req.user.dataValues.id}`)
+            // res.status(200).json(req.user.dataValues);
             res.status(200).json({ userObj: req.user.dataValues, truckObj: trucks });
-        });
-
-
+            });
+        }
     })
 
     app.get("/logout", function(req, res) {
