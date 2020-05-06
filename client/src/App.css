@@ -55,7 +55,10 @@ body {
     /* margin-left: 0; */
     /* margin-right: 0; */
 }
-
+.pacifico {
+    font-family: 'Pacifico', cursive;
+    /* text-transform: lowercase; */
+}
 .brand {
     /* font-family: 'Abril Fatface', cursive; */
     font-family: 'Pacifico', cursive;

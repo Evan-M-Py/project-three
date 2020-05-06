@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TopNav.css';
 import DropdownBase from '../DropdownBase';
-
+import Brand from '../Brand'
 
 class TopNav extends Component {
 
@@ -24,8 +24,8 @@ class TopNav extends Component {
     render() {
         return (
             <nav className="topNav">
-                <div className="logo">
-                    <h4>Crusine</h4>
+                <div>
+                    <Brand />
                 </div>
 
                     <DropdownBase style={this.style.navStyle} buttonLabel='Choose your Truck' options={this.dummyOptions}/>

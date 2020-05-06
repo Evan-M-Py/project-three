@@ -41,14 +41,14 @@ class LoginPage extends Component {
     }
     render() {
         if(this.state.loginStatus){
-            return <Redirect to='/dashboard'  />
+            return <Redirect to='/dashboard' />
         } else
         return (
             <div  className="login">
                     <Container className="login d-flex align-items-center w-100">
                         <Row className="justify-content-center w-100">
                             <Jumbotron className="col-8">
-                                <Brand />
+                                <Brand className="big-font"/>
                                 <Form onSubmit={this.handleSubmit}>
                                     <Row>
                                         <Col>
