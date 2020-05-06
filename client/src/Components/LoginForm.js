@@ -28,8 +28,15 @@ class LoginPage extends Component {
         const username = this.state.username;
         const password = this.state.password;
         axios.post('/login', {username, password}).then(response => {
-            console.log(response.data)
-            this.setState({ loginStatus: true});
+            if(response.data.msg === "notUser"){
+                alert("That username does not exist!")
+                return
+            } else if(response.data.msg === "wrongPassword") {
+                alert("Password is incorrect!")
+                return
+            } else {
+                this.setState({ loginStatus: true});
+            }
         });
     }
     render() {

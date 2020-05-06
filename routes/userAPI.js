@@ -26,8 +26,14 @@ module.exports = function (app) {
         })
     })
     app.post('/login', passport.authenticate('local'), (req, res) => {
-        // console.log(req.user)
-        res.status(200).json(req.user.dataValues);
+        const data = res.req.user;
+        if (data === "notUser") {
+            res.json({ msg: "notUser" })
+        } else if (data === "wrongPassword") {
+            res.json({ msg: "wrongPassword" });
+        } else {
+            res.status(200).json(req.user.dataValues);
+        }
     })
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
