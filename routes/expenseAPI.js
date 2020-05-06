@@ -8,8 +8,12 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/expense", function (req, res) {
-        Expense.findAll({}).then(function (crusine_db) {
+    app.get("/api/expense/:truckID", function (req, res) {
+        db.Inventory.findAll({
+            where: {
+                userID: req.params.truckID
+              }
+        }).then(function (crusine_db) {
             // returns a JSON object with table contents?????
 
             res.json(crusine_db);
