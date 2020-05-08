@@ -51,10 +51,11 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div>
+            <div className="">
                 <div className="graphs">
-                    <div className="leftGraph" style={this.style.leftGraph}>Left Graph</div>
-                    
+                    {/* <div className="leftGraph" style={this.style.leftGraph}>Left Graph</div> */}
+            
+                
                     <div className="rightGraph" style={this.style.rightGraph}>Right Graph</div>
                 </div>
                 <div className="graphInfotron" style={this.style.infoDiv}>
@@ -64,6 +65,7 @@ class Dashboard extends Component {
                         <li>Stuff and stuff and such</li>
                     </ul>
                 </div>
+                <ContainerForTodos/>
             </div>
         )
     }

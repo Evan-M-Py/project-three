@@ -3,7 +3,7 @@ import React from 'react';
 // stateless component
 const Title = () => {
 	return (
-		<div id="titleWrapper">
+		<div id="titleWrapper" className="text-center mb-4">
 			<h2 className="textCenter">To-do List</h2>
 		</div>
 	);
@@ -40,8 +40,9 @@ class Form extends React.Component {
 			// ref should be passed a callback
 			// with underlying dom element as its
 			// argument to get its reference 
-			<div id="form">
-				<input 
+			<div id="form" className="row my-2 d-flex justify-content-center">
+                <input 
+                    className="form-control col-9"
 					ref={node => {
 						this.input = node;
 					}}
@@ -51,7 +52,7 @@ class Form extends React.Component {
 					onChange={this.handleChange}
 				/>
 
-				<button 
+				<button className="btn btn-primary col-2 ml-2"
 					onClick={this.handleNewTodoAddition}
 				>	
 					+
@@ -67,7 +68,7 @@ const Todo = ({todo, remove}) => {
 		<p className="todos">
 			{todo.value}
 			<span 
-				className="removeBtn"
+				className="removeBtn float-right"
 				onClick={()=> {
 					remove(todo.id)
 				}}>
@@ -87,12 +88,11 @@ const List = ({todos, remove}) => {
 			//return (<p>{todo.value}</p>);
 		});
 	} else {
-		allTodos.push(<h3 id="acu">All caught up !</h3>);	
+		allTodos.push(<h3 id="acu">All caught up!</h3>);	
 	}
 	
 	return (
 		<div id="list">
-			<p id="info"> Your Todos: </p>
 			{allTodos}
 		</div>
 	);
@@ -176,7 +176,7 @@ class ContainerForTodos extends React.Component {
 	
 	render() {
 		return (
-			<div id="container">
+			<div id="container" className="card col-3">
 				<Title />
 				<Form addTodo={this.addTodo} />
 				<List todos={this.state.data} remove={this.removeTodo} />

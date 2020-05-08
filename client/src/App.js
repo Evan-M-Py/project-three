@@ -57,8 +57,8 @@ const App = (props) => {
 
                 {/* <div > */}
                 
-                <div style={style.parentDiv}>
-                    {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
+                {/* <div style={style.parentDiv}>
+                    {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />} */}
 
                     <Route exact path="/dashboard" >
                         <Dashboard userID={userID} />
@@ -72,7 +72,7 @@ const App = (props) => {
                         <ExpensePage userID={userID}  />
                     </Route>
 
-                </div>
+                {/* </div> */}
                 </UserContext.Provider>
             </Switch>
         </div>
