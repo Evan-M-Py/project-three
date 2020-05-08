@@ -5,7 +5,7 @@ import DropdownBase from "../../DropdownBase";
 
 // Whenever we try to render an array containing JSX, React knows to render each JSX element separately
 
-const categoryOptions = ['Kitchen Appliances/Tools', 'Vehicle', 'FOH Set Up', 'MISC'];
+const categoryOptions = ['Kitchen-Appliances', 'Tools', 'Vehicle', 'FOH', 'MISC'];
 
 
 function ExpenseInsert(props) {

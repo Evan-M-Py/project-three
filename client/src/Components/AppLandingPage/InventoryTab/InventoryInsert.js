@@ -6,7 +6,7 @@ import DropdownBase from "../../DropdownBase";
 // Whenever we try to render an array containing JSX, React knows to render each JSX element separately
 
 const quantityOptions = ['lbs.', 'oz.', 'dz.',];
-const categoryOptions = ['Produce', 'Meat', 'Dairy', 'Non-Parishable', 'Spices', 'One-Off', 'Seasonal'];
+const categoryOptions = ['Produce', 'Meat', 'Dairy', 'Non-Parish', 'Spices', 'Bread'];
 
 function InventoryInsert(props) {
 

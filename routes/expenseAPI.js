@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.get("/api/expense/:truckID", function (req, res) {
         db.Expense.findAll({
             where: {
-                TruckId: req.params.truckID
+                TruckId: req.params.truckID,
               }
         }).then(function (crusine_db) {
             // returns a JSON object with table contents?????
