@@ -43,7 +43,7 @@ const App = (props) => {
                 {/* //<Route exact path="/" component={LoginPage} /> */}
                 
                 <UserContext.Provider value={ userID }>
-                <Route exact path="/">
+                <Route path='/'>
                     <LoginPage  handleContextChange={handleContextChange} />
                     
                 </Route>

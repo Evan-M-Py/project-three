@@ -20,7 +20,7 @@ app.use(passport.initialize())
 require('./config/passport');
 
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Routes
