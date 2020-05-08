@@ -1,51 +1,51 @@
-import React, {useState} from 'react';
-import {Row, Container} from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Row, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ExpenseDisplayTable from './ExpenseTableDisplay';
 import axios from "axios";
-
-
-
 import ButtonForExpenseComponent from "./InsertExpenseButton"
 
-function ExpensePage() {
 
-    const [exp, setExp] = useState([{
-        Expense: 'New Tires',
-        price: '250.50',
-        catagory: 'truck',
-      }
-    ]);
+function ExpensePage( props ) {
 
-    const [expDisplay, setExpDisplay] = useState([{
+    const [expDisplay, setExpDisplay] = useState([{}]);
 
-    }
-  ]);
-
+    const [count, setCount] = useState(0);
 
     const expenseInsertAJAX = (thing) => {
-      console.log(thing)
-        return axios.post("/api/Expense", thing );
-    }
+      
+      const expObj = {
+        expense: thing.expense,
+        price: thing.cost,
+        category: thing.category,
+        TruckId: Number(props.userID)
+      }
 
-    const expenseTableAJAX = (thing) => {
-      console.log(thing)
-        return axios.get("/api/Expense", thing ).then((res) => {
-          setExpDisplay(res)
+      axios.post("/api/expense/create", expObj).then((res) => {
+        console.log('please, God')
+        setCount(count +1)
+      }
+      )};
+
+    const expenseTableAJAX = () => {
+        return axios.get("/api/expense/" + props.userID ).then((res) => {
+          setExpDisplay(res.data);
         });
     }
 
 
-
+    useEffect(() => {
+      expenseTableAJAX()
+  }, [count])
 
   return (
      <Container>
         <Row>
-        <ButtonForExpenseComponent expenseAJAXPost={expenseInsertAJAX} />
+        <ButtonForExpenseComponent expenseInsertAjax={expenseInsertAJAX} />
         </Row>
 
         <Row>
-           <ExpenseDisplayTable data={expDisplay} expItem={exp} /> 
+           <ExpenseDisplayTable data={expDisplay}  /> 
         </Row>    
     </Container>
   )

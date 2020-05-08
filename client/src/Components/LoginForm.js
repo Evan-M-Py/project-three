@@ -8,7 +8,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Brand from "../Components/Brand";
 import Container from "react-bootstrap/Container";
 import axios from 'axios';
-// import { Redirect } from 'react-router-dom';
+import UserContext from '../utils/userContext'
 
 
 class LoginPage extends Component {
@@ -29,7 +29,8 @@ class LoginPage extends Component {
         const username = this.state.username;
         const password = this.state.password;
         axios.post('/login', { username, password }).then(response => {
-            console.log(response.data)
+            const truckId = response.data.truckObj[0].id
+            this.props.handleContextChange(truckId)
             this.setState({ loginStatus: true });
         });
     }

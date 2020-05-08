@@ -24,7 +24,7 @@ const ButtonForInventoryComponents = props => {
         </Button>
         <Collapse in={open}>
           <div styel={styleMedia.divSpot}>
-           <InventoryInsert inventoryAjaxPost={props.invAJAXPost}/>
+           <InventoryInsert inventoryAjaxPost={props.inventoryAJAXPost}/>
            </div>
         </Collapse>
       </>

@@ -16,7 +16,7 @@ const  InventoryTableDisplay = (props) => {
       <BootstrapTable data={props.data}>
         <TableHeaderColumn 
           isKey
-          dataField='inv_id'
+          dataField='id'
           dataAlign='center'
           headerAlign="left"
           width="75"
@@ -32,7 +32,7 @@ const  InventoryTableDisplay = (props) => {
           Catagory
           </TableHeaderColumn>
         <TableHeaderColumn 
-          dataField='item_name'
+          dataField='itemName'
           dataAlign='center'
           headerAlign="left"
           width="325"
@@ -40,7 +40,7 @@ const  InventoryTableDisplay = (props) => {
           Item Name
           </TableHeaderColumn>
         <TableHeaderColumn 
-          dataField='quantity_type'
+          dataField='unit'
           dataAlign='center'
           headerAlign="left"
           width="100"
@@ -56,7 +56,7 @@ const  InventoryTableDisplay = (props) => {
           Quantity
           </TableHeaderColumn>
         <TableHeaderColumn 
-          dataField='total_cost'
+          dataField='price'
           dataAlign='center'
           headerAlign="left"
           width="200"
