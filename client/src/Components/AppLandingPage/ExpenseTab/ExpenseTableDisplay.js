@@ -24,7 +24,7 @@ const  ExpenseTableDisplay = (props) => {
           ID
           </TableHeaderColumn>
         <TableHeaderColumn 
-          dataField='catagory'
+          dataField='category'
           dataAlign='center'
           headerAlign="left"
           width="175"
@@ -32,7 +32,7 @@ const  ExpenseTableDisplay = (props) => {
           Catagory
           </TableHeaderColumn>
         <TableHeaderColumn 
-          dataField='Expense'
+          dataField='expense'
           dataAlign='center'
           headerAlign="left"
           width="325"
@@ -40,7 +40,7 @@ const  ExpenseTableDisplay = (props) => {
           Expense
           </TableHeaderColumn>
         <TableHeaderColumn 
-          dataField='cost'
+          dataField='price'
           dataAlign='center'
           headerAlign="left"
           width="100"
