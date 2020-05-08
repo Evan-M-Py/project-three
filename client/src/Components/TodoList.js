@@ -1,12 +1,4 @@
-// Made with Local Storage
-// Component Structure
-// --------------------
-// Container
-// --> Title
-// --> Form
-// --> List
-// ----> Todo
-// --> Footer
+import React from 'react';
 
 // stateless component
 const Title = () => {
@@ -106,42 +98,14 @@ const List = ({todos, remove}) => {
 	);
 };
 
-const Footer = () => {
-	return (
-		<div id="footer">
-			<a href="http://iamarshad.com" target="_blank">
-				<p>
-					Arshad Khan
-				</p>
-			</a>
-		</div>
-	);
-};
-
-class Container extends React.Component {
+class ContainerForTodos extends React.Component {
 	constructor(props) {
 		super(props);
-		// data for introduction to app
-		// for new users
-		const introData = [
-			{
-				id: -3, 
-				value: "Hi! This is a simple todo list app made by REACT <3"
-			},
-			{
-				id: -2,
-				value: "Hover over todos and click on `X` to delete them!"
-			},
-			{
-				id: -1,
-				value: "Add new todos and come back any time later, I will save them for you!"
-			}
-		];
-		
+
 		const localData = localStorage.todos && JSON.parse(localStorage.todos);
 
 		this.state = { 
-			data: localData || introData
+			data: localData
 		};
 		
 		// binding methods
@@ -206,8 +170,6 @@ class Container extends React.Component {
 			}
 
 		} else {
-			 console.log("%cApp will not remember todos created as LocalStorage Is Not Available",
-							 "color: hotpink; background: #333; font-size: x-large;font-family: Courier;");
 			window.id = 0;
 		}
 	}
@@ -218,8 +180,9 @@ class Container extends React.Component {
 				<Title />
 				<Form addTodo={this.addTodo} />
 				<List todos={this.state.data} remove={this.removeTodo} />
-				<Footer />
 			</div>
 		);
 	}
 }
+
+export default ContainerForTodos

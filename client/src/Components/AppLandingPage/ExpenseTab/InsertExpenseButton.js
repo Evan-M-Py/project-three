@@ -24,7 +24,7 @@ const ButtonForExpensesComponent = props => {
         </Button>
         <Collapse in={open}>
           <div styel={styleMedia.divSpot}>
-           <ExpenseInsert expenseAjaxPost={props.expenseInsertAJAX}/>
+           <ExpenseInsert expenseInsertAjax={props.expenseInsertAjax}/>
            </div>
         </Collapse>
       </>

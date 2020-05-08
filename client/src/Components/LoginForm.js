@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -8,7 +8,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Brand from "../Components/Brand";
 import Container from "react-bootstrap/Container";
 import axios from 'axios';
-import UserContext from '../utils/userContext'
+// import UserContext from '../utils/userContext'
 
 
 class LoginPage extends Component {

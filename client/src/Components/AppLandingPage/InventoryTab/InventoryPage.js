@@ -30,7 +30,6 @@ function InventoryPage(props) {
     const inventoryTableAJAX = () => {
         return axios.get("/api/inventory/" + props.userID).then((res) => {
             setInvDisplay(res.data);
-            console.log(res)
         })
     };
 

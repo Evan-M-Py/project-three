@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoList from '../Todo'
+import ContainerForTodos from '../TodoList'
 
 
 class Dashboard extends Component {
@@ -52,8 +52,9 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <div className="graphs" style={this.style.graphs}>
-                    {/* <TodoList/> */}
+                <div className="graphs">
+                    <div className="leftGraph" style={this.style.leftGraph}>Left Graph</div>
+                    
                     <div className="rightGraph" style={this.style.rightGraph}>Right Graph</div>
                 </div>
                 <div className="graphInfotron" style={this.style.infoDiv}>
