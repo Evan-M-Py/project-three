@@ -30,6 +30,12 @@ require("./routes/userAPI")(app);
 require("./routes/truckAPI")(app);
 require("./routes/chartAPI")(app);
 
+app.get('*', function(req,res){
+    res.sendFile(path.join(__dirname, "/client/build/index.html"));
+})
+
+
+
 
 
 db.sequelize.sync({ force: false }).then(() => {
