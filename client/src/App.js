@@ -37,12 +37,9 @@ const App = (props) => {
     return (
         <div >
             {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav handleContextChange = {handleContextChange} />}
-            <Switch>
-
-{/* //-------------------------------------------------------------------------CHECK THIS OUT--------------------------------------------------------------------------------- */}
-                {/* //<Route exact path="/" component={LoginPage} /> */}
+            <UserContext.Provider value={ userID }>
+            <Switch>  
                 
-                <UserContext.Provider value={ userID }>
                 <Route path='/'>
                     <LoginPage  handleContextChange={handleContextChange} />
                     
@@ -73,8 +70,9 @@ const App = (props) => {
                     </Route>
 
                 </div>
-                </UserContext.Provider>
+                
             </Switch>
+            </UserContext.Provider>
         </div>
     )
 }
