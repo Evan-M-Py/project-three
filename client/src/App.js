@@ -40,7 +40,7 @@ const App = (props) => {
             <UserContext.Provider value={ userID }>
             <Switch>  
                 
-                <Route path='/'>
+                <Route exact path='/'>
                     <LoginPage  handleContextChange={handleContextChange} />
                     
                 </Route>
