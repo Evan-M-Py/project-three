@@ -17,11 +17,8 @@
       "operatorsAliases": 0
     },
     "production": {
-      "use_env_heroku creataevariable": "JAWSDB_URL",
-      "database": "database_production",
-      "host": "127.0.0.1",
-      "dialect": "mysql",
-      "operatorsAliases": 0
+      "use_env_variable": "JAWSDB_URL",
+      "dialect": "mysql"
     }
   }
 
