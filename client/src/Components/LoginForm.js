@@ -35,9 +35,10 @@ class LoginPage extends Component {
             //     alert("Password is incorrect!")
             //     return
             // } else {
-                console.log(response.data)
                 const truckId = response.data.truckObj[0].id
-                this.props.handleContextChange( truckId )
+                this.props.handleContextChange( truckId );
+                
+                console.log(truckId)
                 this.setState({ loginStatus: true});
             // }
             // this.setState({ loginStatus: true});
