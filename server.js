@@ -32,6 +32,7 @@ require("./routes/inventoryAPI")(app);
 require("./routes/expenseAPI")(app);
 require("./routes/userAPI")(app);
 require("./routes/truckAPI")(app);
+require("./routes/chartAPI")(app);
 
 //NEW ROUTE STRUCTURE
 // const userRoutes = require('./routes/user-routes');
