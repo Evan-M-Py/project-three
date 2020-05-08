@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import FullAppPage from './Components/AppLandingPage/FullAppPage/FullAppPage'
 import SignupPage from './Components/SignupForm';
-import UserContext from './utils/userContext'
-import { Switch, Route, useLocation } from 'react-router-dom';
+import UserContext from './utils/userContext';
+import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
 import LoginPage from './Components/LoginForm';
@@ -18,7 +18,7 @@ const App = (props) => {
     // in function for the sign up info in, in a .then set user to currentUserID
     //In the submit button, do an onclick
 
-    const [ userID, setUserID ] = useState({})
+    const [ userID, setUserID ] = useState('')
 
     const location = useLocation()
 
@@ -29,55 +29,48 @@ const App = (props) => {
     };
 
     const  handleContextChange = (props) => {
-       setUserID(props)
+       setUserID(props)     
     };
+
+
 
     return (
         <div >
-            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav />}
+            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav handleContextChange = {handleContextChange} />}
             <Switch>
 
-//-------------------------------------------------------------------------CHECK THIS OUT---------------------------------------------------------------------------------
-                //<Route exact path="/" component={LoginPage} />
+{/* //-------------------------------------------------------------------------CHECK THIS OUT--------------------------------------------------------------------------------- */}
+                {/* //<Route exact path="/" component={LoginPage} /> */}
                 
-
+                <UserContext.Provider value={ userID }>
                 <Route exact path="/">
-                    <LoginForm handleChange={handleContextChange} />
+                    <LoginPage  handleContextChange={handleContextChange} />
+                    
                 </Route>
 
-                <Route exact path="/signup" component={SignupPage} />
+                <Route exact path="/signup" component={SignupPage} >
                     {/* <SignupPage userID={props.userID} /> */}
-
-        
-
                     <SignupPage handleChange={handleContextChange}/>
                 </Route>
 
 
 
                 {/* <div > */}
-                <UserContext.Provider value={userID}>
+                
                 <div style={style.parentDiv}>
                     {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
 
-
-
-                    <Route exact path="/dashboard">
-                        <Dashboard />
+                    <Route exact path="/dashboard" >
+                        <Dashboard userID={userID} />
                     </Route>
 
                     <Route exact path="/inventory">
-                        <InventoryPage />
+                        <InventoryPage userID={userID} />
                     </Route>
 
                     <Route exact path="/expenses">
-                        <ExpensePage />
+                        <ExpensePage userID={userID}  />
                     </Route>
-
-                    {/* <Route path='*'>
-                        <InventoryPage />
-                    </Route> */}
-
 
                 </div>
                 </UserContext.Provider>
