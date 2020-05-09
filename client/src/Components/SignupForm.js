@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -42,6 +43,7 @@ class SignupPage extends Component {
                 password: "",
                 truckName: "",
                 },
+                loginStatus: false
         };
 
     handleSubmit = (e) => {
@@ -118,6 +120,9 @@ class SignupPage extends Component {
     };
     render() {
         const { formErrors } = this.state;
+        if (this.state.loginStatus) {
+            return <Redirect to="/" />
+        } else
         return (
             <div className="login">
                 <Container className="login d-flex align-items-center w-100">
