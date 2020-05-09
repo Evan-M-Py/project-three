@@ -42,12 +42,9 @@ class SignupPage extends Component {
                 username: "",
                 password: "",
                 truckName: "",
-<<<<<<< HEAD
                 },
                 loginStatus: false
-=======
-                }
->>>>>>> 8f7705dc135ba5c13fb34fadfbeb9224ba63d014
+
         };
 
     handleSubmit = (e) => {
@@ -59,7 +56,7 @@ class SignupPage extends Component {
 
             axios.post('/api/createuser', data).then(rest => {
                 this.props.handleChange(rest.data.user.id);
-                
+                this.setState({ loginStatus: true });
             });
 
 
@@ -117,14 +114,12 @@ class SignupPage extends Component {
             default:
                 break;
         }
-        this.setState({ formErrors, [name]: value }, () =>
-            console.log(this.state)
-        );
+        this.setState({ formErrors, [name]: value }, (res) => res);
     };
     render() {
         const { formErrors } = this.state;
         if (this.state.loginStatus) {
-            return <Redirect to="/" />
+            return <Redirect to="/dashboard" />
         } else
         return (
             <div className="login">

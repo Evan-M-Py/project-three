@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Pie } from 'react-chartjs-2';
+import { HorizontalBar } from 'react-chartjs-2';
 
-const PieChart = (props) => {
+const HorizontalBarGraph = (props) => {
 
-    const pieChartData = {
+    const horizontalBarGraphData = {
         labels: [ 
             'produce', 
             'bread', 
@@ -14,19 +14,17 @@ const PieChart = (props) => {
             ],
         datasets:[ 
             {
-            label: 'Inventory Catagories',
+            label: 'Expense Frequency',
             backgroundColor: ['#ffd31d',
             '#fae7cb',
             '#ffb385',
-            '#ff7272',
-            '#f57b51'],
+            '#ff7272'],
             borderColor: 'rgba(255,99,132,0.2)',
             borderWidth: 1,
             hoverBackgroundColor: ['#ffd31d',
             '#fae7cb',
             '#ffb385',
-            '#ff7272',
-            '#f57b51'],
+            '#ff7272'],
             hoverBorderColor: [
                 'rgba(255,99,132,1)'
             ],
@@ -37,16 +35,13 @@ const PieChart = (props) => {
 
     return(
         <div>
-             <Pie
-                data={pieChartData}
-                width={400}
-                height={400}
-                options={{ 
-                    maintainAspectRatio: false 
-                }}
+             <HorizontalBar
+
+                height={275}
+                width={550}
             />
         </div>
     );
 };
 
-export default PieChart;
+export default HorizontalBarGraph;
