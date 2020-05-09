@@ -27,7 +27,7 @@ const App = (props) => {
     };
     return (
         <div >
-            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav userID={userID} handleContextChange = {handleContextChange} />}
+            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav handleContextChange = {handleContextChange} />}
             <UserContext.Provider value={ userID }>
             <Switch>  
                 <Route exact path='/'>
