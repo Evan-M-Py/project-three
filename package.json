@@ -27,7 +27,6 @@
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.3"
   },
- 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Evan-M-Py/project-three.git"
