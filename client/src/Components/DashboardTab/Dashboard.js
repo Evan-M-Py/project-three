@@ -7,7 +7,7 @@ import BarGraph from './BarGraph'
 
 
 const Dashboard = (props) => {
-
+    console.log(props)
     // state = {
     //     // Code goes here
     // }
