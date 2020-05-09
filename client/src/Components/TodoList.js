@@ -1,5 +1,4 @@
 import React from 'react';
-
 // stateless component
 const Title = () => {
 	return (
@@ -8,7 +7,6 @@ const Title = () => {
 		</div>
 	);
 };
-
 class Form extends React.Component {
 	constructor(props) {
 		super(props);
@@ -51,7 +49,6 @@ class Form extends React.Component {
 					autocomplete="off"
 					onChange={this.handleChange}
 				/>
-
 				<button className="btn btn-primary col-2 ml-2"
 					onClick={this.handleNewTodoAddition}
 				>	
@@ -61,7 +58,6 @@ class Form extends React.Component {
 		);
 	}
 }
-
 const Todo = ({todo, remove}) => {
 	// single todo 
 	return (
@@ -98,7 +94,6 @@ const List = ({todos, remove}) => {
 		</div>
 	);
 };
-
 class ContainerForTodos extends React.Component {
 	constructor(props) {
         super(props);
@@ -175,7 +170,6 @@ class ContainerForTodos extends React.Component {
 			if(!localStorage.count) {
 				localStorage.count = 0;
 			}
-
 		} else {
             console.log("%cApp will not remember todos created as LocalStorage Is Not Available");
 			window.id = 0;
@@ -192,5 +186,4 @@ class ContainerForTodos extends React.Component {
 		);
 	}
 }
-
 export default ContainerForTodos

@@ -1,0 +1,30 @@
+/* * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+} */
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #556b80;
+  height: 8vh;
+}
+
+.navLinks li {
+  list-style: none;
+}
+
+.navLinks a {
+  color: #61dafb;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.logout {
+  margin-right: 20px;
+}

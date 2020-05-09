@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -41,7 +42,9 @@ class SignupPage extends Component {
                 username: "",
                 password: "",
                 truckName: "",
-                }
+                },
+                loginStatus: false
+
         };
 
     handleSubmit = (e) => {
@@ -80,7 +83,7 @@ class SignupPage extends Component {
 
             axios.post('/api/createuser', data).then(rest => {
                 this.props.handleChange(rest.data.user.id);
-                
+                this.setState({ loginStatus: true });
             });
 
 
@@ -139,12 +142,13 @@ class SignupPage extends Component {
             default:
                 break;
         }
-        this.setState({ formErrors, [name]: value }, () =>
-            console.log(this.state)
-        );
+        this.setState({ formErrors, [name]: value }, (res) => res);
     };
     render() {
         const { formErrors } = this.state;
+        if (this.state.loginStatus) {
+            return <Redirect to="/dashboard" />
+        } else
         return (
             <div className="login">
                 <Container className="login d-flex align-items-center w-100">

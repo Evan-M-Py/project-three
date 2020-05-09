@@ -4,7 +4,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PieChart from './PieChart';
 import BarGraph from './BarGraph';
-import LineGraph from './LineGraph';
+import ContainerForTodos from '../TodoList'
+import LineGraph from './HorizontalBarGraph';
+import HorizontalBarGraph from './HorizontalBarGraph';
 
 
 const Dashboard = (props) => {
@@ -46,12 +48,42 @@ const Dashboard = (props) => {
     )};
 
     // const lineGraphAjax = () => {
-    //     return axios.all([getProduce(), getBread(), getDairy(), getMeat(), getSpices(), getNonParish()]).then(axios.spread(function (prod, bread, dairy, meat, spices, nonPar) {
-    //         console.log(prod);
-    //         const lineGraphData = [prod.data.createdAt, bread.data.createdAt, dairy.data.createdAt, meat.data.createdAt, spices.data.createdAt, nonPar.data.createdAt];
-    //         setLineGraphData(lineGraphData);
+    //     return axios.all([getProduce(), getBread(), getDairy(), getMeat(), getSpices(), getNonParish()]).then(axios.spread((one, two, three, four, five, six) => {
+    //     const costArray =  [one, two, three, four, five, six];
+    //     for (let i = 0; i < costArray.length; i++) {
+    //         let layerOne = []
+    //         layerOne = costArray[i].data;
+    //         for (let i = 0; i < layerOne.length; i++) {
+    //             let layerThree = [];
+    //             let layerTwo = layerOne[i].price;
+    //             layerThree.push(layerTwo)
+    //             console.log(sum(layerThree))
+    //         }
+    //     }
+
     //     })
     // )};
+
+    //     function theForLoop(one) {
+    //         for(var i = 0; i < one.length; i++){
+    //             let  priceArray = []
+    //             priceArray.push(one[i]) 
+    //                 console.log(priceArray);
+    //             }
+    //         }
+            
+    //     function sum(array) {
+    //              array.reduce(function(a, b){
+    //             return a + b;
+    //         }, 0)};
+
+
+
+
+
+
+   
+
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -107,6 +139,9 @@ const Dashboard = (props) => {
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
         const style = {
+            main: {
+                marginBottom: '200px'
+            },
             wrapper: {
                 display: 'flex',
                 width: '100vw',
@@ -114,37 +149,48 @@ const Dashboard = (props) => {
                 margin: '0',
                 padding: '0'
             },
+            wrapperTwo: {
+                display: 'flex',
+                height: '80%',
+                margin: '0',
+                padding: '0'
+            },
             graphs: {
-                marginBottom: '35px'
+                marginBottom: '75px',
+                width: '40vw'
+            },
+            todo: {
+                margin: '75px',
+                width: '50vw'
             },
             button: {
                 height: '50px',
                 width: '125px',
                 marginLeft: '20vw'
+            },
+            font: {
+                textAlign: 'center'
             }
         }
 
 
         return (
-        <div>
+            <div>
             <div style={style.wrapper}>
+                
 
-                <div style={style.graphs} >
-                    <PieChart graphData={pieChartData} />
-                </div>
-                <div style={style.graphs} >
-                    <BarGraph graphData={barGraphData}/>
-                </div>
-                <ContainerForTodos/>
+                    <div style={style.graphs} >
+                        <h2 style={style.font}>Inventory Breakdown</h2>
+                        <PieChart graphData={pieChartData} />
+                    </div>
+                    <div style={style.graphs} >
+                        <h2 style={style.font}>Expenses Breakdown</h2>
+                        <BarGraph graphData={barGraphData} />
+                    </div>
+
             </div>
-            {/* <div style={style.wrapper}>
-
-                <div style={style.graphs} >
-                    <LineGraph graphData={lineGraphData} />
-                </div>
-            </div> */}
-
-        </div>
+            <ContainerForTodos style={style.todo}/>
+            </div>
         )
     };
 
