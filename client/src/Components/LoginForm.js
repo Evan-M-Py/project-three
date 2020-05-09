@@ -27,7 +27,8 @@ class LoginPage extends Component {
         this.state.password = e.target.password.value
         const username = this.state.username;
         const password = this.state.password;
-        axios.post('/login', {username, password}).then(response => {
+      
+        axios.post('/login', { username, password }).then(response => {
             // if(response.data.msg === "notUser"){
             //     alert("That username does not exist!")
             //     return
@@ -36,7 +37,7 @@ class LoginPage extends Component {
             //     return
             // } else {
                 const truckId = response.data.truckObj[0].id
-                this.props.handleContextChange( truckId );
+                this.props.handleContextChange(truckId);
                 
                 console.log(truckId)
                 this.setState({ loginStatus: true});
@@ -50,6 +51,7 @@ class LoginPage extends Component {
         } else
         return (
             <div  className="login">
+
                     <Container className="login d-flex align-items-center w-100">
                         <Row className="justify-content-center w-100">
                             <Jumbotron className="col-8">
@@ -76,7 +78,7 @@ class LoginPage extends Component {
                                         </Col>
                                     </Row>
                                     <Row className="justify-content-center">
-                                    {/* <Link to='/dashboard'> */}
+                                        {/* <Link to='/dashboard'> */}
                                         <Button
                                             className="landing-btn col-4 mt-3"
                                             variant="primary"
@@ -84,7 +86,7 @@ class LoginPage extends Component {
                                         >
                                             Login
                                         </Button>
-                                    {/* </Link> */}
+                                        {/* </Link> */}
                                     </Row>
                                     <Row className="justify-content-center">
                                         <a className="mt-3 teal" href="/signup">
@@ -96,10 +98,10 @@ class LoginPage extends Component {
                         </Row>
                     </Container>
 
-            </div>
-        );
+                </div>
+            );
     }
-    
+
 };
 
 export default LoginPage;

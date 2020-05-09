@@ -27,19 +27,19 @@ function SideNav() {
     return (
         <Wrapper inside={(
             <div style={style.navStyle}>
-                
+
                 <Link to='/dashboard'>
                     <SectionSelectorButton select={selectPage} buttonImg={DashIcon} sectionName='Dashboard' style={style.buttonStyle} />
                 </Link>
-                
+
                 <Link to='/inventory'>
                     <SectionSelectorButton select={selectPage} buttonImg={InventoryIcon} sectionName='Inventory' style={style.buttonStyle} />
                 </Link>
-                
+
                 <Link to='/expenses'>
                     <SectionSelectorButton select={selectPage} buttonImg={ExpensesIcon} sectionName='Expenses' style={style.buttonStyle} />
                 </Link>
-            
+
             </div>
         )} />
     )

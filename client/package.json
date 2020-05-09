@@ -19,7 +19,7 @@
     "react-scripts": "3.4.1",
     "sequelize": "^5.21.7"
   },
-  "proxy": "http://localhost:8080/",
+  "proxy": "http://localhost:8080",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

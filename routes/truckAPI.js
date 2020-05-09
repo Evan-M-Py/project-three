@@ -35,7 +35,7 @@ const opts = {
     }),
   );
 
-module.exports = function(app) {
+module.exports = function (app) {
     app.get("/api/truck/:userID", function (req, res) {
         db.Truck.findAll({
             // where: {
