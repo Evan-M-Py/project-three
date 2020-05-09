@@ -44,8 +44,7 @@ class TopNav extends Component {
                     <Brand />
                 </div>
 
-                    
-                    
+                    {/* <DropdownBase style={this.style.navStyle} buttonLabel='Choose your Truck' options={this.dummyOptions}/> */}
 
                 <ul className={`navLinks ${this.state.toggle ? "nav-active" : ""}`}>
                 {/* <li className="mx-2"><button className="btn btn-primary todo-btn">To Do List</button></li>

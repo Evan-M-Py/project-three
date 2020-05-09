@@ -22,9 +22,8 @@ function ExpensePage( props ) {
       }
 
       axios.post("/api/expense/create", expObj).then((res) => {
-        console.log(res)
         setCount(count +1)
-      })
+      });
       
 
   };

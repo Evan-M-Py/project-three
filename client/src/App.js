@@ -30,6 +30,7 @@ const App = (props) => {
             {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav handleContextChange = {handleContextChange} />}
             <UserContext.Provider value={ userID }>
             <Switch>  
+                
                 <Route exact path='/'>
                     <LoginPage  handleContextChange={handleContextChange} />
                 </Route>
@@ -50,6 +51,7 @@ const App = (props) => {
                         <ExpensePage userID={userID}  />
                     </Route>
                 </div>
+                
             </Switch>
             </UserContext.Provider>
         </div>

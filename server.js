@@ -6,6 +6,9 @@ const passport = require('passport')
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -29,6 +32,12 @@ require("./routes/expenseAPI")(app);
 require("./routes/userAPI")(app);
 require("./routes/truckAPI")(app);
 require("./routes/chartAPI")(app);
+
+app.get('*', function(req,res){
+    res.sendFile(path.join(__dirname, "/client/build/index.html"));
+})
+
+
 
 
 

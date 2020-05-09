@@ -3,7 +3,8 @@ import ContainerForTodos from '../TodoList'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PieChart from './PieChart';
-import BarGraph from './BarGraph'
+import BarGraph from './BarGraph';
+import LineGraph from './LineGraph';
 
 
 const Dashboard = (props) => {
@@ -38,10 +39,19 @@ const Dashboard = (props) => {
 
 
     const pieChartAjax = () => {
-        axios.all([getProduce(), getBread(), getDairy(), getMeat(), getSpices(), getNonParish()]).then(axios.spread(function (prod, bread, dairy, meat, spices, nonPar) {
-            console.log(prod, bread, dairy, meat, spices, nonPar)
-        }))
-    };
+        return axios.all([getProduce(), getBread(), getDairy(), getMeat(), getSpices(), getNonParish()]).then(axios.spread(function (prod, bread, dairy, meat, spices, nonPar) {
+            const pieChartData = [prod.data.length, bread.data.length, dairy.data.length, meat.data.length, spices.data.length, nonPar.data.length];
+            setPieChartData(pieChartData);
+        })
+    )};
+
+    // const lineGraphAjax = () => {
+    //     return axios.all([getProduce(), getBread(), getDairy(), getMeat(), getSpices(), getNonParish()]).then(axios.spread(function (prod, bread, dairy, meat, spices, nonPar) {
+    //         console.log(prod);
+    //         const lineGraphData = [prod.data.createdAt, bread.data.createdAt, dairy.data.createdAt, meat.data.createdAt, spices.data.createdAt, nonPar.data.createdAt];
+    //         setLineGraphData(lineGraphData);
+    //     })
+    // )};
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -67,75 +77,76 @@ const Dashboard = (props) => {
  
  
      const barGraphAjax = () => {
-         axios.all([getMISC(), getFOH(), getVehicle(), getTools(), getKitchenAppliances()]).then(axios.spread(function (misc, foh, tools, kitchenApp, vehicle) {
-             console.log(misc, foh, tools, kitchenApp, vehicle)
-         }))
-     };
+         axios.all([getMISC(), getFOH(), getTools(), getKitchenAppliances(), getVehicle()])
+         .then(axios.spread(function (misc, foh, tools, kitchenApp, vehicle) {
+            const barGraphData =  [foh.data.length, misc.data.length, tools.data.length, kitchenApp.data.length, vehicle.data.length];   
+            setBarGraphData(barGraphData);
+         })
+    )};
 
-    const pieChartData = {};
-    const barGraphData = {};
+    function allGraphAjax() {
+        barGraphAjax();
+        pieChartAjax();
+        // lineGraphAjax();
+    };
+
+        const [ refresh, setRefresh ] = useState(true)
+
+        function refreshSet() {
+            setRefresh(refresh +1)
+        }
+
+     useEffect(() => {
+         allGraphAjax()},
+         [true]
+     )
+
+    const [ pieChartData, setPieChartData ] = useState();
+    const [ barGraphData, setBarGraphData ] = useState();
+    // const [ lineGraphData, setLineGraphData ] = useState();
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-   const style = {
-        graphs: {
-            display: 'flex',
-            justifyContent: 'space-around'
-        },
-        leftGraph: {
-            width: '30vw',
-            height: '50vh',
-            backgroundColor: 'red',
-            margin: '30px auto',
-            color: 'whitesmoke',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '30px',
-            fontWeight: 'bold'
-        },
-        rightGraph: {
-            width: '30vw',
-            height: '50vh',
-            backgroundColor: 'blue',
-            margin: '30px auto',
-            color: 'whitesmoke',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '30px',
-            fontWeight: 'bold'
-        },
-        infoDiv: {
-            width: '90vw',
-            height: '50vh',
-            margin: '20px auto',
-            backgroundColor: 'green',
-            color: 'whitesmoke',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+        const style = {
+            wrapper: {
+                display: 'flex',
+                width: '100vw',
+                height: '50%',
+                margin: '0',
+                padding: '0'
+            },
+            graphs: {
+                marginBottom: '35px'
+            },
+            button: {
+                height: '50px',
+                width: '125px',
+                marginLeft: '20vw'
+            }
         }
-    }
 
 
         return (
-            <div>
-                <div className="graphs" style={style.graphs} run={pieChartAjax()} run2={barGraphAjax()} >
-                    <div className="leftGraph" style={style.leftGraph}><PieChart data={pieChartData}/></div>
-                    <div className="rightGraph" style={style.rightGraph}><BarGraph data={barGraphData}/></div>
+        <div>
+            <div style={style.wrapper}>
+
+                <div style={style.graphs} >
+                    <PieChart graphData={pieChartData} />
                 </div>
-                <div className="graphInfotron" style={style.infoDiv}>
-                    <ul>
-                        <li>Stuff stuff stuff stuff, money is cool, right?</li>
-                        <li>Trucks and stuff and such and boots and cats and boots and cats</li>
-                        <li>Stuff and stuff and such</li>
-                    </ul>
+                <div style={style.graphs} >
+                    <BarGraph graphData={barGraphData}/>
                 </div>
                 <ContainerForTodos/>
             </div>
+            {/* <div style={style.wrapper}>
+
+                <div style={style.graphs} >
+                    <LineGraph graphData={lineGraphData} />
+                </div>
+            </div> */}
+
+        </div>
         )
-    }
+    };
 
 
 export default Dashboard;

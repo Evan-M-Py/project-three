@@ -41,7 +41,7 @@ class SignupPage extends Component {
                 username: "",
                 password: "",
                 truckName: "",
-                },
+                }
         };
 
     handleSubmit = (e) => {
@@ -77,7 +77,6 @@ class SignupPage extends Component {
 
 
             delete data.formErrors;
-            console.log(data);
 
             axios.post('/api/createuser', data).then(rest => {
                 this.props.handleChange(rest.data.user.id);
