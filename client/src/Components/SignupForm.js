@@ -42,8 +42,12 @@ class SignupPage extends Component {
                 username: "",
                 password: "",
                 truckName: "",
+<<<<<<< HEAD
                 },
                 loginStatus: false
+=======
+                }
+>>>>>>> 8f7705dc135ba5c13fb34fadfbeb9224ba63d014
         };
 
     handleSubmit = (e) => {
@@ -52,7 +56,6 @@ class SignupPage extends Component {
         if (formValid(this.state)) {
             const data = { ...this.state };
             delete data.formErrors;
-            console.log(data);
 
             axios.post('/api/createuser', data).then(rest => {
                 this.props.handleChange(rest.data.user.id);
