@@ -1,3 +1,5 @@
+import { Component } from 'react';
+import ContainerForTodos from '../TodoList'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PieChart from './PieChart';
@@ -5,7 +7,7 @@ import BarGraph from './BarGraph'
 
 
 const Dashboard = (props) => {
-
+    console.log(props)
     // state = {
     //     // Code goes here
     // }
@@ -130,6 +132,7 @@ const Dashboard = (props) => {
                         <li>Stuff and stuff and such</li>
                     </ul>
                 </div>
+                <ContainerForTodos/>
             </div>
         )
     }

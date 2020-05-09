@@ -3,8 +3,8 @@ import { Dropdown } from 'react-bootstrap';
 
 const DropdownBase = props => {
     return(
-        <Dropdown  style={props.style}>
-            <Dropdown.Toggle size='sm' variant="secondary" id="dropdown-basic">
+        <Dropdown  className="dropdown">
+            <Dropdown.Toggle id="dropdown-button">
                 {props.buttonLabel}
             </Dropdown.Toggle>
 

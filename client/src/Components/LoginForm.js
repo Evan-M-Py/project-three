@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -8,7 +8,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Brand from "../Components/Brand";
 import Container from "react-bootstrap/Container";
 import axios from 'axios';
-import UserContext from '../utils/userContext'
+// import UserContext from '../utils/userContext'
 
 
 class LoginPage extends Component {
@@ -21,31 +21,41 @@ class LoginPage extends Component {
             loginStatus: false
         };
     }
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.state.username = e.target.username.value
         this.state.password = e.target.password.value
         const username = this.state.username;
         const password = this.state.password;
+      
         axios.post('/login', { username, password }).then(response => {
-            const truckId = response.data.truckObj[0].id
-            console.log(`This: ${truckId}`)
-            this.props.handleContextChange(truckId)
-            this.setState({ loginStatus: true });
+            // if(response.data.msg === "notUser"){
+            //     alert("That username does not exist!")
+            //     return
+            // } else if(response.data.msg === "wrongPassword") {
+            //     alert("Password is incorrect!")
+            //     return
+            // } else {
+                const truckId = response.data.truckObj[0].id
+                this.props.handleContextChange(truckId);
+                
+                console.log(truckId)
+                this.setState({ loginStatus: true});
+            // }
+            // this.setState({ loginStatus: true});
         });
     }
     render() {
-        if (this.state.loginStatus) {
+        if(this.state.loginStatus){
             return <Redirect to='/dashboard' />
         } else
-            return (
-                <div className="login">
+        return (
+            <div  className="login">
 
                     <Container className="login d-flex align-items-center w-100">
                         <Row className="justify-content-center w-100">
                             <Jumbotron className="col-8">
-                                <Brand />
+                                <Brand className="big-font"/>
                                 <Form onSubmit={this.handleSubmit}>
                                     <Row>
                                         <Col>

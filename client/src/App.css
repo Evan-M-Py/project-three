@@ -55,7 +55,10 @@ body {
     /* margin-left: 0; */
     /* margin-right: 0; */
 }
-
+.pacifico {
+    font-family: 'Pacifico', cursive;
+    /* text-transform: lowercase; */
+}
 .brand {
     /* font-family: 'Abril Fatface', cursive; */
     font-family: 'Pacifico', cursive;
@@ -83,3 +86,21 @@ body {
     background-color: #5dbcd2;
     border: 1px solid #5dbcd2;
 }   
+
+.card {
+    background-color: #286090;
+    height: 300px;
+
+}
+.todo-btn {
+    width: 100px;
+    color: #286090 !important;
+    border: 1px solid #61DAFB !important;
+    background-color: #61DAFB !important;
+}
+#dropdown-button {
+
+    color: #286090 !important;
+    border: 1px solid #61DAFB !important;
+    background-color: #61DAFB !important;
+}

@@ -1,3 +1,4 @@
+// require('dotenv').config()
 const db = require("../models")
 const passport = require('passport');
 
@@ -27,21 +28,23 @@ module.exports = function (app) {
         })
     })
     app.post('/login', passport.authenticate('local'), (req, res) => {
-        // console.log(req.user)
-        
-        db.Truck.findAll({
-            
+        const data = res.req.user;
+        // if (data === "notUser") {
+        //     res.json({ msg: "notUser" })
+        // } else if (data === "wrongPassword") {
+        //     res.json({ msg: "wrongPassword" });
+        // }  else {
+        db.Truck.findAll({ 
             where: {
                 UserId: req.user.dataValues.id
               },
-
         }).then(function (trucks) {
             console.log(`truckID:  ${trucks}`);
             console.log(`UserID: ${req.user.dataValues.id}`)
+            // res.status(200).json(req.user.dataValues);
             res.status(200).json({ userObj: req.user.dataValues, truckObj: trucks });
-        });
-
-
+            });
+        // }
     })
 
     app.get("/logout", function(req, res) {

@@ -32,7 +32,7 @@ class SignupPage extends Component {
             phoneNumber: "",
             username: "",
             password: "",
-            truckName: "",
+            
             formErrors: {
                 firstName: "",
                 lastName: "",
@@ -48,7 +48,34 @@ class SignupPage extends Component {
         e.preventDefault();
         // Possible change: send data from state, not from the DOM form element
         if (formValid(this.state)) {
-            const data = { ...this.state };
+
+            let data = new FormData(e.target);
+            
+            // fetch('/signup', {
+            //     method: 'POST',
+            //     body: JSON.stringify({
+            //         firstName: e.target.firstName.value,
+            //         lastName: e.target.lastName.value,
+            //         email: e.target.email.value,
+            //         phoneNumber: e.target.phoneNumber.value,
+            //         username: e.target.username.value,
+            //         password: e.target.password.value,
+            //     }),
+            //     headers: {
+            //         Accept: 'application/json',
+            //         'Content-Type': 'application/json',
+            //     },
+            //   })
+            //   .then(response => response.json())
+            //   .then(({ accessToken }) => {
+            //         localStorage.setItem('loginToken', accessToken);
+                    
+            //         this.props.history.push('/truck');
+            //   })
+
+            data = {...this.state};
+
+
             delete data.formErrors;
             console.log(data);
 
@@ -56,6 +83,7 @@ class SignupPage extends Component {
                 this.props.handleChange(rest.data.user.id);
                 
             });
+
 
 
         } else {
