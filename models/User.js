@@ -33,7 +33,6 @@ module.exports = function (sequelize, DataTypes) {
             // Add in bcrypt here to get password hashing
         }
     });
-
     User.associate = function (models) {
         // Associating Author with Posts
         // When an Author is deleted, also delete any associated Posts
@@ -41,6 +40,13 @@ module.exports = function (sequelize, DataTypes) {
             onDelete: "cascade"
         });
     };
+    // User.associate = function (models) {
+    //     // Associating user with tucks
+    //     // When an user is deleted, also delete any associated trucks
+    //     User.hasMany(models.Truck, {
+    //         foreignKey: "truck_id"
+    //     });
+    // };
 
     return User;
 };

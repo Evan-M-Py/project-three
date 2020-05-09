@@ -13,13 +13,11 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: { allowNull: false }
         });
     };
-
     Truck.associate = function (models) {
         Truck.hasMany(models.Inventory, {
             onDelete: "cascade"
         });
     };
-
     Truck.associate = function (models) {
         Truck.hasMany(models.Expense, {
             foreignKey: { allowNull: false }

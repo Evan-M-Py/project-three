@@ -5,13 +5,13 @@ const db = require("../models");
 passport.use(
     new LocalStrategy(function (username, password, done) {
         db.User.findOne({ where: { username: username } }).then(res => {
-            console.log
-         if (res === null) {
-                return done(null, false, { message: "Incorrect username." });
-            }
-            if (res.dataValues.password !== password) {
-                return done(null, false, { message: "Incorrect password." });
-            }
+        //  if (res === null) {
+        //         return done(null, "notUser")
+        //         // , false, { message: "Incorrect username." };
+        //     }
+        //     if (res.dataValues.password !== password) {
+        //         return done(null, "wrongPassword");
+        //     }
             return done(null, res);
 
         }).catch(err => {

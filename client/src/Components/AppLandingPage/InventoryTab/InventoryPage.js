@@ -6,6 +6,7 @@ import axios from "axios";
 import ButtonForInventoryComponents from "./InsertInventoryButton"
 
 function InventoryPage(props) {
+    console.log(props);
 
     const [count, setCount] = useState(0);
 
@@ -22,6 +23,7 @@ function InventoryPage(props) {
             price: thing.price,
             TruckId: Number(props.userID)
         };
+        console.log(Number(props.userID))
 
         axios.post('/api/inventory/create', invObj).then((res) => setCount(count +1));
 

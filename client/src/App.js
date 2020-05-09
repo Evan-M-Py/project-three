@@ -14,13 +14,16 @@ import ExpensePage from './Components/AppLandingPage/ExpenseTab/ExpensePage';
 const App = (props) => {
     // in function for the sign up info in, in a .then set user to currentUserID
     //In the submit button, do an onclick
+
     const [userID, setUserID] = useState('')
+
     const location = useLocation()
     const style = {
         parentDiv: {
             display: "flex"
         }
     };
+
     const handleContextChange = (props) => {
         setUserID(props)
     };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './TopNav.css';
 import DropdownBase from '../DropdownBase';
+import Brand from '../Brand'
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
@@ -15,12 +16,12 @@ class TopNav extends Component {
 
     truckOptions = [this.state.trucks]
     
-    style = {
-        navStyle: {
-            top: '20px',
-            left: '10vw'
-        }
-    }
+    // style = {
+    //     navStyle: {
+    //         top: '20px',
+    //         left: '10vw'
+    //     }
+    // }
 
     dummyOptions = ['dont', 'yell', 'at', 'me']
 
@@ -36,20 +37,27 @@ class TopNav extends Component {
         console.log(this.props);
         return (
             <nav className="topNav">
-                <div className="logo">
-                    <h4>Crusine</h4>
+                
+
+                
+                <div>
+                    <Brand />
                 </div>
 
-                    <DropdownBase style={this.style.navStyle} buttonLabel='Choose your Truck' options={this.dummyOptions}/>
+                    
+                    
 
                 <ul className={`navLinks ${this.state.toggle ? "nav-active" : ""}`}>
-                    <li><a className={`navLinkFade1 ${this.state.toggle ? "toggled" : ""}`} href="#">Inventory</a></li>
+                <li className="mx-2"><button className="btn btn-primary todo-btn">To Do List</button></li>
+                    <li className="mx-2"><DropdownBase buttonLabel='Choose your Truck' options={this.dummyOptions}/></li>
+                    
+                    <li className="mx-2"><a className={`navLinkFade3 ${this.state.toggle ? "toggled" : ""}`} href="/dashboard">Dashboard</a></li>
 
-                    <li><a className={`navLinkFade2 ${this.state.toggle ? "toggled" : ""}`} href="#">Expenses</a></li>
+                    <li className="mx-2"><a className={`navLinkFade1 ${this.state.toggle ? "toggled" : ""}`} href="/inventory">Inventory</a></li>
 
-                    <li><a className={`navLinkFade3 ${this.state.toggle ? "toggled" : ""}`} href="#">Settings</a></li>
+                    <li className="mx-2"><a className={`navLinkFade2 ${this.state.toggle ? "toggled" : ""}`} href="/expenses">Expenses</a></li>
 
-                    <li><a className={`navLinkFade4 ${this.state.toggle ? "toggled" : ""}`}  onClick={() => this.logoutFunction()} >Logout</a></li>
+                    <li className="mx-2"><a className={`navLinkFade4 ${this.state.toggle ? "toggled" : ""}`}  onClick={() => this.logoutFunction()} >Logout</a></li>
 
                 </ul>
 
