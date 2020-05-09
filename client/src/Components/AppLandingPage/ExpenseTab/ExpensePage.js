@@ -18,19 +18,21 @@ function ExpensePage( props ) {
         expense: thing.expense,
         price: thing.cost,
         category: thing.category,
-        TruckId: Number(props.userID)
+        TruckId:  Number(props.userID)
       }
 
       axios.post("/api/expense/create", expObj).then((res) => {
-        console.log('please, God')
+        console.log(res)
         setCount(count +1)
-      }
-      )};
+      })
+      
+
+  };
 
     const expenseTableAJAX = () => {
-        return axios.get("/api/expense/" + props.userID ).then((res) => {
-          setExpDisplay(res.data);
-        });
+        return axios.get("/api/expense/" + props.userID).then((res) => {
+        setExpDisplay(res.data);
+     });
     }
 
 
