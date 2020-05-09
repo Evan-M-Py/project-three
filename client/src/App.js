@@ -39,7 +39,7 @@ const App = (props) => {
                 </Route>
                 {/* <div > */}
                 <div style={style.parentDiv}>
-                    {/* {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />} */}
+                    {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
                     <Route exact path="/dashboard" >
                         <Dashboard userID={userID} />
                     </Route>

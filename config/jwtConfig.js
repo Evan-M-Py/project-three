@@ -1,3 +1,3 @@
-module.exports = {
-    secret: 'jwt-secret',
-};
+// module.exports = {
+//     secret: 'jwt-secret',
+// };

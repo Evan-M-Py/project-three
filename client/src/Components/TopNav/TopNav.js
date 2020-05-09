@@ -48,14 +48,14 @@ class TopNav extends Component {
                     
 
                 <ul className={`navLinks ${this.state.toggle ? "nav-active" : ""}`}>
-                <li className="mx-2"><button className="btn btn-primary todo-btn">To Do List</button></li>
+                {/* <li className="mx-2"><button className="btn btn-primary todo-btn">To Do List</button></li>
                     <li className="mx-2"><DropdownBase buttonLabel='Choose your Truck' options={this.dummyOptions}/></li>
                     
                     <li className="mx-2"><a className={`navLinkFade3 ${this.state.toggle ? "toggled" : ""}`} href="/dashboard">Dashboard</a></li>
 
                     <li className="mx-2"><a className={`navLinkFade1 ${this.state.toggle ? "toggled" : ""}`} href="/inventory">Inventory</a></li>
 
-                    <li className="mx-2"><a className={`navLinkFade2 ${this.state.toggle ? "toggled" : ""}`} href="/expenses">Expenses</a></li>
+                    <li className="mx-2"><a className={`navLinkFade2 ${this.state.toggle ? "toggled" : ""}`} href="/expenses">Expenses</a></li> */}
 
                     <li className="mx-2"><a className={`navLinkFade4 ${this.state.toggle ? "toggled" : ""}`}  onClick={() => this.logoutFunction()} >Logout</a></li>
 
