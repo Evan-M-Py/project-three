@@ -30,6 +30,7 @@ class LoginPage extends Component {
         const password = this.state.password;
         axios.post('/login', { username, password }).then(response => {
             const truckId = response.data.truckObj[0].id
+            console.log(`This: ${truckId}`)
             this.props.handleContextChange(truckId)
             this.setState({ loginStatus: true });
         });
