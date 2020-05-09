@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PieChart from './PieChart';
 import BarGraph from './BarGraph';
-// import ContainerForTodos from '../TodoList'
+import ContainerForTodos from '../TodoList'
 import LineGraph from './HorizontalBarGraph';
 import HorizontalBarGraph from './HorizontalBarGraph';
 
@@ -187,7 +187,7 @@ const Dashboard = (props) => {
                     </div>
 
             </div>
-            {/* <ContainerForTodos style={style.todo}/> */}
+            <ContainerForTodos style={style.todo}/>
             </div>
         )
     };
