@@ -9,7 +9,8 @@ function Wrapper(props) {
 
     const style = {
         wrapper: {
-            margin:'0'
+            margin:'0',
+            height: '100vh'
         }
     }
 

@@ -11,7 +11,7 @@ function SideNav() {
     const style = {
         navStyle: {
             height: '100vh',
-            width: '90px',
+            width: '75px',
             backgroundColor: 'lightGrey',
             margin: '0',
             borderRadius: '0px, 6px, 6px, 0px'

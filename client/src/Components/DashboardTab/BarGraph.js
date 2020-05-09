@@ -43,7 +43,7 @@ const barGraphData = {
             <Bar
                 data={barGraphData}
                 width={500}
-                height={300}
+                height={450}
                 options={{ 
                     maintainAspectRatio: false 
                 }}
