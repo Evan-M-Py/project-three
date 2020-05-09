@@ -27,7 +27,7 @@ class LoginPage extends Component {
         this.state.password = e.target.password.value
         const username = this.state.username;
         const password = this.state.password;
-      
+
         axios.post('/login', { username, password }).then(response => {
             // if(response.data.msg === "notUser"){
             //     alert("That username does not exist!")
@@ -36,26 +36,27 @@ class LoginPage extends Component {
             //     alert("Password is incorrect!")
             //     return
             // } else {
-                const truckId = response.data.truckObj[0].id
-                this.props.handleContextChange(truckId);
-                
-                console.log(truckId)
-                this.setState({ loginStatus: true});
+            const truckId = response.data.truckObj[0].id
+            this.props.handleContextChange(truckId);
+
+            console.log(truckId)
+            this.setState({ loginStatus: true });
             // }
             // this.setState({ loginStatus: true});
         });
     }
     render() {
-        if(this.state.loginStatus){
+        // console.log(this.state.loginStatus)
+        if (this.state.loginStatus) {
             return <Redirect to='/dashboard' />
         } else
-        return (
-            <div  className="login">
+            return (
+                <div className="login">
 
                     <Container className="login d-flex align-items-center w-100">
                         <Row className="justify-content-center w-100">
                             <Jumbotron className="col-8">
-                                <Brand className="big-font"/>
+                                <Brand className="big-font" />
                                 <Form onSubmit={this.handleSubmit}>
                                     <Row>
                                         <Col>

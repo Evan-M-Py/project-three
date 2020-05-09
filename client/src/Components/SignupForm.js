@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import axios from 'axios'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -26,65 +27,40 @@ const formValid = ({ formErrors, ...rest }) => {
 class SignupPage extends Component {
 
     state = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        username: "",
+        password: "",
+
+        formErrors: {
             firstName: "",
             lastName: "",
             email: "",
             phoneNumber: "",
             username: "",
             password: "",
-            
-            formErrors: {
-                firstName: "",
-                lastName: "",
-                email: "",
-                phoneNumber: "",
-                username: "",
-                password: "",
-                truckName: "",
-                },
-        };
+            truckName: "",
+        },
+
+        loginStatus: false
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
         // Possible change: send data from state, not from the DOM form element
         if (formValid(this.state)) {
-
-            let data = new FormData(e.target);
-            
-            // fetch('/signup', {
-            //     method: 'POST',
-            //     body: JSON.stringify({
-            //         firstName: e.target.firstName.value,
-            //         lastName: e.target.lastName.value,
-            //         email: e.target.email.value,
-            //         phoneNumber: e.target.phoneNumber.value,
-            //         username: e.target.username.value,
-            //         password: e.target.password.value,
-            //     }),
-            //     headers: {
-            //         Accept: 'application/json',
-            //         'Content-Type': 'application/json',
-            //     },
-            //   })
-            //   .then(response => response.json())
-            //   .then(({ accessToken }) => {
-            //         localStorage.setItem('loginToken', accessToken);
-                    
-            //         this.props.history.push('/truck');
-            //   })
-
-            data = {...this.state};
-
-
+            const data = { ...this.state };
             delete data.formErrors;
             console.log(data);
 
             axios.post('/api/createuser', data).then(rest => {
                 this.props.handleChange(rest.data.user.id);
-                
+
             });
 
-
+            this.setState({ loginStatus: true });
 
         } else {
             console.log("form is not valid");
@@ -145,175 +121,182 @@ class SignupPage extends Component {
         );
     };
     render() {
+        // console.log(this.state.loginStatus)
         const { formErrors } = this.state;
-        return (
-            <div className="login">
-                <Container className="login d-flex align-items-center w-100">
-                    <Row className="justify-content-center w-100">
-                        <Jumbotron className="col-8">
-                            <Brand />
-                            <Form onSubmit={this.handleSubmit}>
-                                <Row>
-                                    <Col>
-                                        <Form.Group>
-                                            <Form.Label htmlFor="firstName">
-                                                First Name
+
+        // console.log(formValid(this.state));
+
+        if (this.state.loginStatus) {
+            return <Redirect to="/" />
+        } else
+            return (
+                <div className="login">
+                    <Container className="login d-flex align-items-center w-100">
+                        <Row className="justify-content-center w-100">
+                            <Jumbotron className="col-8">
+                                <Brand />
+                                <Form onSubmit={this.handleSubmit}>
+                                    <Row>
+                                        <Col>
+                                            <Form.Group>
+                                                <Form.Label htmlFor="firstName">
+                                                    First Name
                                             </Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Enter your first name"
-                                                name="firstName"
-                                                formNoValidate
-                                                onChange={this.handleChange}
-                                            />
-                                            {formErrors.firstName.length >
-                                                0 && (
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your first name"
+                                                    name="firstName"
+                                                    formNoValidate
+                                                    onChange={this.handleChange}
+                                                />
+                                                {formErrors.firstName.length >
+                                                    0 && (
+                                                        <span className="errorMessage">
+                                                            {formErrors.firstName}
+                                                        </span>
+                                                    )}
+                                            </Form.Group>
+                                        </Col>
+                                        <Col>
+                                            <Form.Group>
+                                                <Form.Label htmlFor="lastName">
+                                                    Last Name
+                                            </Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your last name"
+                                                    name="lastName"
+                                                    formNoValidate
+                                                    onChange={this.handleChange}
+                                                />
+                                                {formErrors.lastName.length > 0 && (
                                                     <span className="errorMessage">
-                                                        {formErrors.firstName}
+                                                        {formErrors.lastName}
                                                     </span>
                                                 )}
-                                        </Form.Group>
-                                    </Col>
-                                    <Col>
-                                        <Form.Group>
-                                            <Form.Label htmlFor="lastName">
-                                                Last Name
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <Form.Group>
+                                                <Form.Label htmlFor="email">
+                                                    Email
                                             </Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Enter your last name"
-                                                name="lastName"
-                                                formNoValidate
-                                                onChange={this.handleChange}
-                                            />
-                                            {formErrors.lastName.length > 0 && (
-                                                <span className="errorMessage">
-                                                    {formErrors.lastName}
-                                                </span>
-                                            )}
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <Form.Group>
-                                            <Form.Label htmlFor="email">
-                                                Email
-                                            </Form.Label>
-                                            <Form.Control
-                                                type="email"
-                                                placeholder="name@url.com"
-                                                name="email"
-                                                formNoValidate
-                                                onChange={this.handleChange}
-                                            />
-                                            {formErrors.email.length > 0 && (
-                                                <span className="errorMessage">
-                                                    {formErrors.email}
-                                                </span>
-                                            )}
-                                        </Form.Group>
-                                    </Col>
-                                    <Col>
-                                        <Form.Group>
-                                            <Form.Label htmlFor="phoneNumber">
-                                                Phone Number
-                                            </Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="5555555555 (no dashes)"
-                                                name="phoneNumber"
-                                                formNoValidate
-                                                onChange={this.handleChange}
-                                            />
-                                            {formErrors.phoneNumber.length >
-                                                0 && (
+                                                <Form.Control
+                                                    type="email"
+                                                    placeholder="name@url.com"
+                                                    name="email"
+                                                    formNoValidate
+                                                    onChange={this.handleChange}
+                                                />
+                                                {formErrors.email.length > 0 && (
                                                     <span className="errorMessage">
-                                                        {formErrors.phoneNumber}
+                                                        {formErrors.email}
                                                     </span>
                                                 )}
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <Form.Group>
-                                            <Form.Label htmlFor="username">
-                                                Username
+                                            </Form.Group>
+                                        </Col>
+                                        <Col>
+                                            <Form.Group>
+                                                <Form.Label htmlFor="phoneNumber">
+                                                    Phone Number
                                             </Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Username"
-                                                name="username"
-                                                formNoValidate
-                                                onChange={this.handleChange}
-                                            />
-                                            {formErrors.username.length > 0 && (
-                                                <span className="errorMessage">
-                                                    {formErrors.username}
-                                                </span>
-                                            )}
-                                        </Form.Group>
-                                    </Col>
-                                    <Col>
-                                        <Form.Group>
-                                            <Form.Label htmlFor="password">
-                                                Password
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="5555555555 (no dashes)"
+                                                    name="phoneNumber"
+                                                    formNoValidate
+                                                    onChange={this.handleChange}
+                                                />
+                                                {formErrors.phoneNumber.length >
+                                                    0 && (
+                                                        <span className="errorMessage">
+                                                            {formErrors.phoneNumber}
+                                                        </span>
+                                                    )}
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <Form.Group>
+                                                <Form.Label htmlFor="username">
+                                                    Username
                                             </Form.Label>
-                                            <Form.Control
-                                                type="password"
-                                                placeholder="Password"
-                                                name="password"
-                                                formNoValidate
-                                                onChange={this.handleChange}
-                                            />
-                                            {formErrors.password.length > 0 && (
-                                                <span className="errorMessage">
-                                                    {formErrors.password}
-                                                </span>
-                                            )}
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
-                                <Row className="justify-content-center">
-                                    <Col className="col-6">
-                                        <Form.Group>
-                                            <Form.Label htmlFor="truckName">
-                                                What is your Truck's name?
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Username"
+                                                    name="username"
+                                                    formNoValidate
+                                                    onChange={this.handleChange}
+                                                />
+                                                {formErrors.username.length > 0 && (
+                                                    <span className="errorMessage">
+                                                        {formErrors.username}
+                                                    </span>
+                                                )}
+                                            </Form.Group>
+                                        </Col>
+                                        <Col>
+                                            <Form.Group>
+                                                <Form.Label htmlFor="password">
+                                                    Password
                                             </Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Truck name"
-                                                name="truckName"
-                                                formNoValidate
-                                                onChange={this.handleChange}
-                                            />{formErrors.truckName.length > 0 && (
-                                                <span className="errorMessage">{formErrors.truckName}</span>
-                                            )}
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
-                                <Row className="justify-content-center">
-                                    <Button
-                                        className="landing-btn col-4 mt-3"
-                                        variant="primary"
-                                        type="submit"
-                                    // userID={this.state.user}
-                                    >
-                                        Submit
+                                                <Form.Control
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    name="password"
+                                                    formNoValidate
+                                                    onChange={this.handleChange}
+                                                />
+                                                {formErrors.password.length > 0 && (
+                                                    <span className="errorMessage">
+                                                        {formErrors.password}
+                                                    </span>
+                                                )}
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
+                                    <Row className="justify-content-center">
+                                        <Col className="col-6">
+                                            <Form.Group>
+                                                <Form.Label htmlFor="truckName">
+                                                    What is your Truck's name?
+                                            </Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Truck name"
+                                                    name="truckName"
+                                                    formNoValidate
+                                                    onChange={this.handleChange}
+                                                />{formErrors.truckName.length > 0 && (
+                                                    <span className="errorMessage">{formErrors.truckName}</span>
+                                                )}
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
+                                    <Row className="justify-content-center">
+                                        <Button
+                                            className="landing-btn col-4 mt-3"
+                                            variant="primary"
+                                            type="submit"
+                                        // userID={this.state.user}
+                                        >
+                                            Submit
                                     </Button>
-                                </Row>
-                                <Row className="justify-content-center">
-                                    <a className="mt-3 teal" href="/">
-                                        Already a member? Sign in here
+                                    </Row>
+                                    <Row className="justify-content-center">
+                                        <a className="mt-3 teal" href="/">
+                                            Already a member? Sign in here
                                     </a>
-                                </Row>
-                            </Form>
-                        </Jumbotron>
-                    </Row>
-                </Container>
-            </div>
-        );
+                                    </Row>
+                                </Form>
+                            </Jumbotron>
+                        </Row>
+                    </Container>
+                </div>
+            );
     }
 }
 export default SignupPage;
