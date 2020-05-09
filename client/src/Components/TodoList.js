@@ -93,6 +93,7 @@ const List = ({todos, remove}) => {
 	
 	return (
 		<div id="list">
+            <p id="info"> Your Todos: </p>
 			{allTodos}
 		</div>
 	);
@@ -100,12 +101,18 @@ const List = ({todos, remove}) => {
 
 class ContainerForTodos extends React.Component {
 	constructor(props) {
-		super(props);
+        super(props);
+        const introData = [
+			{
+				id: -1,
+				value: "Hover over todos and click on 'x' to delete them!"
+			}
+		];
 
 		const localData = localStorage.todos && JSON.parse(localStorage.todos);
 
 		this.state = { 
-			data: localData
+			data: localData || introData
 		};
 		
 		// binding methods
@@ -170,6 +177,7 @@ class ContainerForTodos extends React.Component {
 			}
 
 		} else {
+            console.log("%cApp will not remember todos created as LocalStorage Is Not Available");
 			window.id = 0;
 		}
 	}
