@@ -32,7 +32,7 @@ require("./routes/chartAPI")(app);
 
 
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, function () {
 
 
