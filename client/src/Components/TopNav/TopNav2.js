@@ -1,47 +1,44 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './TopNav2.css';
-import DropdownBase from '../DropdownBase';
+// import DropdownBase from '../DropdownBase';
 import Brand from '../Brand'
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
+const TopNav = (props) => {
 
-
-class TopNav extends Component {
-
-    state = {
-        toggle: false,
+    const [toggleState, setToggleState] = useState({
+        toggle: false
+    });
+    const [trucksState, setTrucksState] = useState({
         trucks: ''
-    }
+    });
 
-    truckOptions = [this.state.trucks]
+    const truckOptions = [trucksState.trucks];
 
-    logoutFunction = () => {
+    const logoutFunction = () => {
         Axios.get('/logout').then(
-
-            this.props.history.push("/")
-        )
-        this.props.handleContextChange()
+            props.history.push("/")
+        );
+        props.handleContextChange();
     };
 
-    render() {
-        console.log(this.props);
-        return (
-            <nav className="topNav">
+    return (
+        <nav className="topNav">
 
-                <div className="brand">
-                    <Brand />
-                </div>
+            <div className="brand">
+                <Brand />
+            </div>
 
-                <ul className={`navLinks ${this.state.toggle ? "nav-active" : ""}`}>
+            <ul className={`navLinks ${toggleState.toggle ? "nav-active" : ""}`}>
 
-                    <li className="brand text-center mb-3"><a className="logout" onClick={() => this.logoutFunction()} >Logout</a></li>
+                <li className="brand text-center mb-3"><a className="logout" onClick={() => logoutFunction()} >Logout</a></li>
 
-                </ul>
+            </ul>
 
-            </nav>
-        )
-    }
+        </nav>
+    )
+
 }
 
 
