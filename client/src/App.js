@@ -8,7 +8,7 @@ import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
 import LoginPage from './Components/LoginForm';
-import TopNav from './Components/TopNav/TopNav.js';
+import TopNav from './Components/TopNav/TopNav';
 import Dashboard from './Components/DashboardTab/Dashboard';
 import ExpensePage from './Components/AppLandingPage/ExpenseTab/ExpensePage';
 
@@ -29,23 +29,20 @@ const App = (props) => {
     };
 
     const  handleContextChange = (props) => {
-       setUserID(props)
-       console.log(UserContext)
+       setUserID(props)     
     };
 
 
 
     return (
         <div >
-            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav />}
-            <Switch>
-
-{/* //-------------------------------------------------------------------------CHECK THIS OUT--------------------------------------------------------------------------------- */}
-                {/* //<Route exact path="/" component={LoginPage} /> */}
+            {location.pathname !== '/signup' && location.pathname !== '/' && <TopNav handleContextChange = {handleContextChange} />}
+            <UserContext.Provider value={ userID }>
+            <Switch>  
                 
-                <UserContext.Provider value={ userID }>
-                <Route exact path="/">
+                <Route exact path='/'>
                     <LoginPage  handleContextChange={handleContextChange} />
+                    
                 </Route>
 
                 <Route exact path="/signup" component={SignupPage} >
@@ -61,7 +58,7 @@ const App = (props) => {
                     {location.pathname !== '/signup' && location.pathname !== '/' && <SideNav />}
 
                     <Route exact path="/dashboard" >
-                        <Dashboard />
+                        <Dashboard userID={userID} />
                     </Route>
 
                     <Route exact path="/inventory">
@@ -73,8 +70,9 @@ const App = (props) => {
                     </Route>
 
                 </div>
-                </UserContext.Provider>
+                
             </Switch>
+            </UserContext.Provider>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const Todo = sequelize.define("Todo", {
+    const Todo = sequelize.define('Todo', {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -19,11 +19,11 @@ module.exports = function (sequelize, DataTypes) {
         // When an Author is deleted, also delete any associated Posts
         Todo.belongsTo(models.User, {
             as: 'user',
-            foreignKey: "user_id"
+            foreignKey: 'user_id'
         });
         Todo.belongsTo(models.Truck, {
             as: 'truck',
-            foreignKey: "truck_id"
+            foreignKey: 'truck_id'
         });
     };
 
