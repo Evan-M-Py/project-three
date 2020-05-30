@@ -1,9 +1,6 @@
 {
-  "name": "evan-py-portfolio",
+  "name": "crusine",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.16.x"
-  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -17,7 +14,6 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "bcrypt": "^4.0.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mysql2": "^2.1.0",
