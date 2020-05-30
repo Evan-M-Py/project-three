@@ -1,15 +1,14 @@
-import { React, Component} from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-class TodoList extends Component {
-    render() {
-        return (
-            <div>
-                <Container>
+function TodoList() {
+    return (
+        <div>
+            <Container>
                 <h3>To-Do List</h3>
                 <Row>
                     <div id="todosDiv">
@@ -28,13 +27,13 @@ class TodoList extends Component {
                             </Form.Group>
                         </Col>
                         <Col>
-                        <Form.Group controlId="description">
-                            <Form.Label>Tell me more...</Form.Label>
-                            <Form.Control
-                                type="description"
-                                placeholder="Description"
-                            />
-                        </Form.Group>
+                            <Form.Group controlId="description">
+                                <Form.Label>Tell me more...</Form.Label>
+                                <Form.Control
+                                    type="description"
+                                    placeholder="Description"
+                                />
+                            </Form.Group>
                         </Col>
                         <Row>
                             <Button
@@ -42,14 +41,13 @@ class TodoList extends Component {
                                 variant="primary"
                                 type="submit"
                             >
-                            Add</Button>
+                                Add</Button>
                         </Row>
                     </Form>
                 </Row>
-                </Container>
-            </div>
-        )
-    }
+            </Container>
+        </div>
+    )
 }
 
 export default TodoList

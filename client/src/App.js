@@ -8,7 +8,7 @@ import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 import InventoryPage from './Components/AppLandingPage/InventoryTab/InventoryPage';
 import SideNav from './Components/AppLandingPage/SideNav';
 import LoginPage from './Components/LoginForm';
-import TopNav from './Components/TopNav/TopNav2';
+import TopNav from './Components/TopNav/TopNav';
 import Dashboard from './Components/DashboardTab/Dashboard';
 import ExpensePage from './Components/AppLandingPage/ExpenseTab/ExpensePage';
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PieChart from './PieChart';
 import BarGraph from './BarGraph';
-import ContainerForTodos from '../TodoList'
+import ContainerForTodos from '../ContainerForTodos'
 import LineGraph from './HorizontalBarGraph';
 import HorizontalBarGraph from './HorizontalBarGraph';
 
