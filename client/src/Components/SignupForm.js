@@ -329,23 +329,26 @@ const SignupPage = (props) => {
         console.log(res)
         console.log('stops here')
         setLoginStatus(true);
+
     })
         
        
     };
 
 
-    if(loginStatus){
-        return <Redirect to='/dashboard'  />
-    } else
+    // if(loginStatus){
+    //     return <Redirect to='/dashboard'  />
+    // } else
 
     return (
+        
             <div className="login">
+                {loginStatus ? <Redirect to='/dashboard'  /> : null }
                 <Container className="login d-flex align-items-center w-100">
                     <Row className="justify-content-center w-100">
                         <Jumbotron className="col-8">
                             <Brand />
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                            <form >
                                 <Row>
                                     <Col>
                                             <label htmlFor='firstName'>first name: </label>
@@ -383,9 +386,7 @@ const SignupPage = (props) => {
                                     </Col>
                                 </Row>
                                 <Row className="justify-content-center">
-                                    <input
-                                        type="submit"
-                                    />
+                                    <button onClick={handleSubmit(onSubmit)} type="submit">submit</button>
                                 </Row>
                                 <Row className="justify-content-center">
                                     <a className="mt-3 teal" href="/">
