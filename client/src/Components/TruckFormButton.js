@@ -13,22 +13,22 @@ const ButtonForInventoryComponents = props => {
     }
 
     return (
-      <>
-        <Button
-          onClick={() => setOpen(!open)}
-          aria-controls="example-collapse-text"
-          // aria-expanded={open}
-          variant='secondary'
-        >
-          Sign up your first truck!
+        <>
+            <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                // aria-expanded={open}
+                variant='secondary'
+            >
+                Sign up your first truck!
         </Button>
-        <Collapse in={open}>
-          <div styel={style.divSpot}>
-           <TruckInsert truckAjaxPost={props.truckAJAXPost}/>
-           </div>
-        </Collapse>
-      </>
-  );
+            <Collapse in={open}>
+                <div styel={style.divSpot}>
+                    <TruckInsert truckAjaxPost={props.truckAJAXPost} />
+                </div>
+            </Collapse>
+        </>
+    );
 }
 
 export default ButtonForInventoryComponents;

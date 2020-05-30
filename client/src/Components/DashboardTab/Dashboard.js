@@ -3,7 +3,7 @@ import axios from 'axios';
 import PieChart from './PieChart';
 import BarGraph from './BarGraph';
 import ContainerForTodos from '../ContainerForTodos';
-import TodoList from '../TodoList';
+// import TodoList from '../TodoList';
 import LineGraph from './HorizontalBarGraph';
 import HorizontalBarGraph from './HorizontalBarGraph';
 
