@@ -191,8 +191,8 @@ const Dashboard = (props) => {
                 </div>
 
             </div>
-            {/* <ContainerForTodos style={style.todo} /> */}
-            <TodoList />
+            <ContainerForTodos style={style.todo} />
+            {/* <TodoList /> */}
         </div>
     )
 };

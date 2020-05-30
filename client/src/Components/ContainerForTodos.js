@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-
 // stateless component
 const Title = () => {
     return (
