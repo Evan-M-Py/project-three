@@ -3,6 +3,8 @@ import axios from 'axios';
 import PieChart from './PieChart';
 import BarGraph from './BarGraph';
 import ContainerForTodos from '../ContainerForTodos'
+import { Col, Row, Container } from "react-bootstrap";
+
 import LineGraph from './HorizontalBarGraph';
 import HorizontalBarGraph from './HorizontalBarGraph';
 
@@ -158,7 +160,7 @@ const Dashboard = (props) => {
                 width: '40vw'
             },
             todo: {
-                margin: '75px',
+                margin: '75vw',
                 width: '50vw'
             },
             button: {
@@ -174,20 +176,34 @@ const Dashboard = (props) => {
 
         return (
             <div>
-            <div style={style.wrapper}>
-                
 
-                    <div style={style.graphs} >
-                        <h2 style={style.font}>Inventory Breakdown</h2>
-                        <PieChart graphData={pieChartData} />
-                    </div>
-                    <div style={style.graphs} >
-                        <h2 style={style.font}>Expenses Breakdown</h2>
-                        <BarGraph graphData={barGraphData} />
-                    </div>
+                <Container>
 
-            </div>
-            <ContainerForTodos style={style.todo}/>
+                    <Row>
+
+                        <div style={style.wrapper}>
+
+                                <div style={style.graphs} >
+                                    <h2 style={style.font}>Inventory Breakdown</h2>
+                                    <PieChart graphData={pieChartData} />
+                                </div>
+                                <div style={style.graphs} >
+                                    <h2 style={style.font}>Expenses Breakdown</h2>
+                                    <BarGraph graphData={barGraphData} />
+                                </div>
+
+                        </div>
+
+                    </Row>
+
+                    <Row>
+                    
+                        <ContainerForTodos style={style.todo}/>
+                    
+                    </Row>
+            
+                </Container>
+            
             </div>
         )
     };
